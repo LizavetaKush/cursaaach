@@ -63,4 +63,7 @@ nav a{
     border-radius: 0.5rem;
 }
 
+.header-bottom-right-auth.hidden {
+    display: none;
+}
 

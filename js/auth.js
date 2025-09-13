@@ -1,5 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', function() {
+    if (!document.getElementById('login-form') && !document.getElementById('register-form')) {
+        return; 
+    }
+
     const authTabs = document.querySelectorAll('.auth-tab');
     const authForms = document.querySelectorAll('.auth-form');
     const loginForm = document.getElementById('login-form');
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         authTabs.forEach(tab => {
             tab.addEventListener('click', function() {
                 const tabName = this.getAttribute('data-tab');
-
+                
                 authTabs.forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
 
@@ -55,22 +58,35 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        generateUsernameBtn.addEventListener('click', generateUsername);
+        if (generateUsernameBtn) {
+            generateUsernameBtn.addEventListener('click', generateUsername);
+        }
 
-        registerForm.addEventListener('input', function(e) {
-            validateField(e.target);
-            validateRegisterForm();
-        });
+        if (registerForm) {
+            registerForm.addEventListener('input', function(e) {
+                validateField(e.target);
+                validateRegisterForm();
+            });
+        }
 
-        loginForm.addEventListener('submit', handleLogin);
-        registerForm.addEventListener('submit', handleRegistration);
+        if (loginForm) {
+            loginForm.addEventListener('submit', handleLogin);
+        }
+        
+        if (registerForm) {
+            registerForm.addEventListener('submit', handleRegistration);
+        }
 
         generateUsername();
     }
 
     function validateField(field) {
+        if (!field || !field.parentElement) return false;
+        
         const errorElement = field.parentElement.querySelector('.error-message');
-        errorElement.textContent = '';
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
         field.classList.remove('error');
         
         switch(field.name) {
@@ -90,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return validateName(field, errorElement);
             case 'username':
                 return validateUsername(field, errorElement);
+            default:
+                return true;
         }
     }
     
@@ -98,15 +116,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const belarusRegex = /^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
         
         if (!phone) {
-            errorElement.textContent = 'Номер телефона обязателен';
+            if (errorElement) errorElement.textContent = 'Номер телефона обязателен';
             field.classList.add('error');
             return false;
         }
-
+        
         const cleanPhone = phone.replace(/[^\d+]/g, '');
         
         if (!belarusRegex.test(cleanPhone)) {
-            errorElement.textContent = 'Введите корректный номер телефона РБ';
+            if (errorElement) errorElement.textContent = 'Введите корректный номер телефона РБ';
             field.classList.add('error');
             return false;
         }
@@ -119,13 +137,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
         if (!email) {
-            errorElement.textContent = 'Email обязателен';
+            if (errorElement) errorElement.textContent = 'Email обязателен';
             field.classList.add('error');
             return false;
         }
         
         if (!emailRegex.test(email)) {
-            errorElement.textContent = 'Введите корректный email';
+            if (errorElement) errorElement.textContent = 'Введите корректный email';
             field.classList.add('error');
             return false;
         }
@@ -140,13 +158,13 @@ document.addEventListener('DOMContentLoaded', function() {
         minAgeDate.setFullYear(today.getFullYear() - 16);
         
         if (!field.value) {
-            errorElement.textContent = 'Дата рождения обязательна';
+            if (errorElement) errorElement.textContent = 'Дата рождения обязательна';
             field.classList.add('error');
             return false;
         }
         
         if (birthdate > minAgeDate) {
-            errorElement.textContent = 'Вам должно быть не менее 16 лет';
+            if (errorElement) errorElement.textContent = 'Вам должно быть не менее 16 лет';
             field.classList.add('error');
             return false;
         }
@@ -158,43 +176,43 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = field.value;
         
         if (!password) {
-            errorElement.textContent = 'Пароль обязателен';
+            if (errorElement) errorElement.textContent = 'Пароль обязателен';
             field.classList.add('error');
             return false;
         }
         
         if (password.length < 8 || password.length > 20) {
-            errorElement.textContent = 'Пароль должен быть от 8 до 20 символов';
+            if (errorElement) errorElement.textContent = 'Пароль должен быть от 8 до 20 символов';
             field.classList.add('error');
             return false;
         }
         
         if (!/(?=.*[a-z])/.test(password)) {
-            errorElement.textContent = 'Добавьте строчную букву';
+            if (errorElement) errorElement.textContent = 'Добавьте строчную букву';
             field.classList.add('error');
             return false;
         }
         
         if (!/(?=.*[A-Z])/.test(password)) {
-            errorElement.textContent = 'Добавьте заглавную букву';
+            if (errorElement) errorElement.textContent = 'Добавьте заглавную букву';
             field.classList.add('error');
             return false;
         }
         
         if (!/(?=.*\d)/.test(password)) {
-            errorElement.textContent = 'Добавьте цифру';
+            if (errorElement) errorElement.textContent = 'Добавьте цифру';
             field.classList.add('error');
             return false;
         }
         
         if (!/(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/.test(password)) {
-            errorElement.textContent = 'Добавьте специальный символ';
+            if (errorElement) errorElement.textContent = 'Добавьте специальный символ';
             field.classList.add('error');
             return false;
         }
         
         if (commonPasswords.includes(password.toLowerCase())) {
-            errorElement.textContent = 'Пароль слишком распространен';
+            if (errorElement) errorElement.textContent = 'Пароль слишком распространен';
             field.classList.add('error');
             return false;
         }
@@ -203,17 +221,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function validateConfirmPassword(field, errorElement) {
-        const password = document.getElementById('password').value;
+        const password = document.getElementById('password')?.value || '';
         const confirmPassword = field.value;
         
         if (!confirmPassword) {
-            errorElement.textContent = 'Подтверждение пароля обязательно';
+            if (errorElement) errorElement.textContent = 'Подтверждение пароля обязательно';
             field.classList.add('error');
             return false;
         }
         
         if (password !== confirmPassword) {
-            errorElement.textContent = 'Пароли не совпадают';
+            if (errorElement) errorElement.textContent = 'Пароли не совпадают';
             field.classList.add('error');
             return false;
         }
@@ -225,13 +243,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const name = field.value.trim();
         
         if (field.required && !name) {
-            errorElement.textContent = 'Это поле обязательно';
+            if (errorElement) errorElement.textContent = 'Это поле обязательно';
             field.classList.add('error');
             return false;
         }
         
         if (name && !/^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(name)) {
-            errorElement.textContent = 'Имя может содержать только буквы, пробелы и дефисы';
+            if (errorElement) errorElement.textContent = 'Имя может содержать только буквы, пробелы и дефисы';
             field.classList.add('error');
             return false;
         }
@@ -243,19 +261,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = field.value.trim();
         
         if (!username) {
-            errorElement.textContent = 'Никнейм обязателен';
+            if (errorElement) errorElement.textContent = 'Никнейм обязателен';
             field.classList.add('error');
             return false;
         }
         
         if (username.length < 3) {
-            errorElement.textContent = 'Никнейм должен быть не менее 3 символов';
+            if (errorElement) errorElement.textContent = 'Никнейм должен быть не менее 3 символов';
             field.classList.add('error');
             return false;
         }
         
         if (!/^[a-zA-Z0-9_\-]+$/.test(username)) {
-            errorElement.textContent = 'Никнейм может содержать только буквы, цифры, дефисы и подчеркивания';
+            if (errorElement) errorElement.textContent = 'Никнейм может содержать только буквы, цифры, дефисы и подчеркивания';
             field.classList.add('error');
             return false;
         }
@@ -264,17 +282,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function generateUsername() {
+        if (!usernameInput || !generateAttemptsSpan) return;
+        
         if (generateAttempts <= 0 && !manualUsernameAllowed) {
             manualUsernameAllowed = true;
             usernameInput.removeAttribute('readonly');
-            generateUsernameBtn.style.display = 'none';
-            document.querySelector('.username-info').textContent = 'Теперь вы можете ввести никнейм вручную';
+            if (generateUsernameBtn) generateUsernameBtn.style.display = 'none';
+            const usernameInfo = document.querySelector('.username-info');
+            if (usernameInfo) usernameInfo.textContent = 'Теперь вы можете ввести никнейм вручную';
             return;
         }
         
         if (generateAttempts > 0) {
             generateAttempts--;
-            generateAttemptsSpan.textContent = generateAttempts;
+            if (generateAttemptsSpan) generateAttemptsSpan.textContent = generateAttempts;
         }
         
         const adjectives = ['Cool', 'Smart', 'Fast', 'Brave', 'Happy', 'Clever', 'Wise', 'Young', 'Great', 'Super'];
@@ -287,9 +308,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const username = `${randomAdjective}${randomNoun}${numbers}`.toLowerCase();
         usernameInput.value = username;
         
-        if (generateAttempts === 0) {
+        if (generateAttempts === 0 && generateUsernameBtn) {
             generateUsernameBtn.textContent = 'Ввести вручную';
-            document.querySelector('.username-info').textContent = 'Вы можете ввести никнейм вручную';
+            const usernameInfo = document.querySelector('.username-info');
+            if (usernameInfo) usernameInfo.textContent = 'Вы можете ввести никнейм вручную';
         }
         
         validateField(usernameInput);
@@ -297,39 +319,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function validateRegisterForm() {
+        if (!registerForm) return false;
+        
         const fields = registerForm.querySelectorAll('input[required]');
         let isValid = true;
         
         fields.forEach(field => {
-            if (!validateField(field)) {
-                isValid = false;
-            }
+            if (!validateField(field)) isValid = false;
         });
-
-        if (!agreementCheckbox.checked) {
-            isValid = false;
-        }
-
-        const isManualPassword = document.querySelector('input[name="password-type"]:checked').value === 'manual';
-        if (isManualPassword) {
+        
+        if (agreementCheckbox && !agreementCheckbox.checked) isValid = false;
+        
+        const passwordType = document.querySelector('input[name="password-type"]:checked');
+        if (passwordType && passwordType.value === 'manual') {
             const password = document.getElementById('password');
             const confirmPassword = document.getElementById('confirm-password');
             
-            if (!validateField(password) || !validateField(confirmPassword)) {
-                isValid = false;
-            }
+            if (password && !validateField(password)) isValid = false;
+            if (confirmPassword && !validateField(confirmPassword)) isValid = false;
         }
         
-        registerBtn.disabled = !isValid;
+        if (registerBtn) registerBtn.disabled = !isValid;
         return isValid;
     }
-
+    
     async function handleLogin(e) {
         e.preventDefault();
+        if (!loginForm) return;
         
         const formData = {
-            email: document.getElementById('login-email').value,
-            password: document.getElementById('login-password').value
+            email: document.getElementById('login-email')?.value || '',
+            password: document.getElementById('login-password')?.value || ''
         };
         
         try {
@@ -344,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (user) {
                 alert('Вход выполнен успешно!');
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                window.location.href = '../index.html';
+                window.location.href = 'home.html';
             } else {
                 alert('Неверный email/телефон или пароль');
             }
@@ -356,27 +376,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     async function handleRegistration(e) {
         e.preventDefault();
+        if (!registerForm || !validateRegisterForm()) return;
         
-        if (!validateRegisterForm()) return;
-        
-        const isManualPassword = document.querySelector('input[name="password-type"]:checked').value === 'manual';
+        const passwordType = document.querySelector('input[name="password-type"]:checked');
         let password;
         
-        if (isManualPassword) {
-            password = document.getElementById('password').value;
+        if (passwordType && passwordType.value === 'manual') {
+            password = document.getElementById('password')?.value || '';
         } else {
             password = generateRandomPassword();
             alert(`Ваш сгенерированный пароль: ${password}\nСохраните его в надежном месте!`);
         }
         
         const userData = {
-            phone: document.getElementById('phone').value.replace(/[^\d+]/g, ''),
-            email: document.getElementById('email').value,
-            birthdate: document.getElementById('birthdate').value,
-            lastname: document.getElementById('lastname').value,
-            firstname: document.getElementById('firstname').value,
-            middlename: document.getElementById('middlename').value || '',
-            username: document.getElementById('username').value,
+            phone: document.getElementById('phone')?.value.replace(/[^\d+]/g, '') || '',
+            email: document.getElementById('email')?.value || '',
+            birthdate: document.getElementById('birthdate')?.value || '',
+            lastname: document.getElementById('lastname')?.value || '',
+            firstname: document.getElementById('firstname')?.value || '',
+            middlename: document.getElementById('middlename')?.value || '',
+            username: document.getElementById('username')?.value || '',
             password: password,
             role: 'user',
             registrationDate: new Date().toISOString()
@@ -391,31 +410,24 @@ document.addEventListener('DOMContentLoaded', function() {
             );
             
             if (existingUser) {
-                if (existingUser.email === userData.email) {
-                    alert('Пользователь с таким email уже существует');
-                } else if (existingUser.phone === userData.phone) {
-                    alert('Пользователь с таким телефоном уже существует');
-                } else {
-                    alert('Пользователь с таким никнеймом уже существует');
-                }
+                if (existingUser.email === userData.email) alert('Пользователь с таким email уже существует');
+                else if (existingUser.phone === userData.phone) alert('Пользователь с таким телефоном уже существует');
+                else alert('Пользователь с таким никнеймом уже существует');
                 return;
             }
-
+            
             const response = await fetch('http://localhost:3000/users', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(userData)
             });
             
             if (response.ok) {
+                const newUser = await response.json();
                 alert('Регистрация прошла успешно!');
-                localStorage.setItem('currentUser', JSON.stringify(userData));
-                window.location.href = '../index.html';
-            } else {
-                throw new Error('Registration failed');
-            }
+                localStorage.setItem('currentUser', JSON.stringify(newUser));
+                window.location.href = 'home.html';
+            } else throw new Error('Registration failed');
         } catch (error) {
             console.error('Registration error:', error);
             alert('Ошибка при регистрации. Попробуйте позже.');
@@ -424,31 +436,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function generateRandomPassword() {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
-        let password = '';
-
-        password += 'A'; 
-        password += 'a'; 
-        password += '1'; 
-        password += '!'; 
-
+        let password = 'Aal!';
+        
         for (let i = 4; i < 12; i++) {
             password += chars.charAt(Math.floor(Math.random() * chars.length));
         }
- 
+        
         return password.split('').sort(() => 0.5 - Math.random()).join('');
     }
-
+    
     const phoneInput = document.getElementById('phone');
     if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             
-            if (value.startsWith('375')) {
-                value = '+' + value;
-            } else if (value.startsWith('80')) {
-                value = '+375' + value.substring(2);
-            }
-
+            if (value.startsWith('375')) value = '+' + value;
+            else if (value.startsWith('80')) value = '+375' + value.substring(2);
+            
             if (value.length > 3) value = value.substring(0, 4) + ' ' + value.substring(4);
             if (value.length > 6) value = value.substring(0, 6) + ' ' + value.substring(6);
             if (value.length > 9) value = value.substring(0, 9) + ' ' + value.substring(9);

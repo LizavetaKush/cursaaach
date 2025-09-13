@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "phone": "+375291234567",
       "email": "user@example.com",
       "birthdate": "1990-01-01",
@@ -12,6 +12,19 @@
       "password": "Password123!",
       "role": "user",
       "registrationDate": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "8078",
+      "phone": "+375296054434",
+      "email": "qwe@gmail.com",
+      "birthdate": "1996-06-12",
+      "lastname": "qweq",
+      "firstname": "we",
+      "middlename": "",
+      "username": "greatwolf654rew",
+      "password": "yfea!ia)@51A",
+      "role": "user",
+      "registrationDate": "2025-09-13T20:05:58.145Z"
     }
   ]
 }

@@ -1,0 +1,351 @@
+.accessibility-modal {
+    max-width: 600px;
+}
+
+.accessibility-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.accessibility-section:last-child {
+    border-bottom: none;
+}
+
+.accessibility-section h3 {
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.color-schemes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.color-scheme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-scheme-option:hover {
+    border-color: #FF3F3F;
+}
+
+.color-scheme-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.color-scheme-preview {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 2px solid transparent;
+}
+
+.color-scheme-option input[type="radio"]:checked + .color-scheme-preview {
+    border-color: #FF3F3F;
+}
+
+.default-scheme {
+    background: linear-gradient(135deg, #ffffff 50%, #f8f9fa 50%);
+}
+
+.black-white-scheme {
+    background: #000000;
+    position: relative;
+}
+
+.black-white-scheme::after {
+    content: "A";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.black-green-scheme {
+    background: #000000;
+    position: relative;
+}
+
+.black-green-scheme::after {
+    content: "A";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.beige-brown-scheme {
+    background: #f5f5dc;
+    position: relative;
+}
+
+.beige-brown-scheme::after {
+    content: "A";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #8b4513;
+    font-weight: bold;
+}
+
+.blue-darkblue-scheme {
+    background: #e6f3ff;
+    position: relative;
+}
+
+.blue-darkblue-scheme::after {
+    content: "A";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00008b;
+    font-weight: bold;
+}
+
+body.accessibility-active {
+    line-height: 1.6;
+}
+
+body.accessibility-active .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+body.accessibility-active p,
+body.accessibility-active li,
+body.accessibility-active a {
+    max-width: 80ch;
+    text-align: left;
+}
+
+body.accessibility-active * {
+    letter-spacing: 0.12em;
+    word-spacing: 0.16em;
+}
+
+body.accessibility-active.font-normal {
+    font-size: 16px;
+}
+
+body.accessibility-active.font-large {
+    font-size: 20px;
+}
+
+body.accessibility-active.font-large p,
+body.accessibility-active.font-large li,
+body.accessibility-active.font-large a {
+    line-height: 1.8;
+}
+
+body.accessibility-active.font-x-large {
+    font-size: 24px;
+}
+
+body.accessibility-active.font-x-large p,
+body.accessibility-active.font-x-large li,
+body.accessibility-active.font-x-large a {
+    line-height: 2;
+}
+
+body.accessibility-active.color-black-white {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.accessibility-active.color-black-white .header-top,
+body.accessibility-active.color-black-white .header-bottom,
+body.accessibility-active.color-black-white .block-absolut,
+body.accessibility-active.color-black-white .trusted-block,
+body.accessibility-active.color-black-white .accordion-label,
+body.accessibility-active.color-black-white .accordion-content,
+body.accessibility-active.color-black-white .contact-form-container,
+body.accessibility-active.color-black-white .form-section,
+body.accessibility-active.color-black-white .have-absolut,
+body.accessibility-active.color-black-white .your-absolut,
+body.accessibility-active.color-black-white .carousel-container,
+body.accessibility-active.color-black-white .carousel-btn,
+body.accessibility-active.color-black-white .faq-item,
+body.accessibility-active.color-black-white .wetalk-about-block,
+body.accessibility-active.color-black-white .contact-info-card,
+body.accessibility-active.color-black-white footer {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #333333;
+}
+
+body.accessibility-active.color-black-white .header-top-right p,
+body.accessibility-active.color-black-white .header-top-right-phone p,
+body.accessibility-active.color-black-white .accordion-content p,
+body.accessibility-active.color-black-white .form-group label,
+body.accessibility-active.color-black-white .footer-top-col p,
+body.accessibility-active.color-black-white .footer-top-col li,
+body.accessibility-active.color-black-white .faq-item p,
+body.accessibility-active.color-black-white .contact-info-card p {
+    color: #cccccc;
+}
+
+body.accessibility-active.color-black-green {
+    background-color: #000000;
+    color: #00ff00;
+}
+
+body.accessibility-active.color-black-green .header-top,
+body.accessibility-active.color-black-green .header-bottom,
+body.accessibility-active.color-black-green .block-absolut,
+body.accessibility-active.color-black-green .trusted-block,
+body.accessibility-active.color-black-green .accordion-label,
+body.accessibility-active.color-black-green .accordion-content,
+body.accessibility-active.color-black-green .contact-form-container,
+body.accessibility-active.color-black-green .form-section,
+body.accessibility-active.color-black-green .have-absolut,
+body.accessibility-active.color-black-green .your-absolut,
+body.accessibility-active.color-black-green .carousel-container,
+body.accessibility-active.color-black-green .carousel-btn,
+body.accessibility-active.color-black-green .faq-item,
+body.accessibility-active.color-black-green .wetalk-about-block,
+body.accessibility-active.color-black-green .contact-info-card,
+body.accessibility-active.color-black-green footer {
+    background-color: #000000;
+    color: #00ff00;
+    border-color: #333333;
+}
+
+body.accessibility-active.color-black-green .header-top-right p,
+body.accessibility-active.color-black-green .header-top-right-phone p,
+body.accessibility-active.color-black-green .accordion-content p,
+body.accessibility-active.color-black-green .form-group label,
+body.accessibility-active.color-black-green .footer-top-col p,
+body.accessibility-active.color-black-green .footer-top-col li,
+body.accessibility-active.color-black-green .faq-item p,
+body.accessibility-active.color-black-green .contact-info-card p {
+    color: #00cc00;
+}
+
+body.accessibility-active.color-beige-brown {
+    background-color: #f5f5dc;
+    color: #8b4513;
+}
+
+body.accessibility-active.color-beige-brown .header-top,
+body.accessibility-active.color-beige-brown .header-bottom,
+body.accessibility-active.color-beige-brown .block-absolut,
+body.accessibility-active.color-beige-brown .trusted-block,
+body.accessibility-active.color-beige-brown .accordion-label,
+body.accessibility-active.color-beige-brown .accordion-content,
+body.accessibility-active.color-beige-brown .contact-form-container,
+body.accessibility-active.color-beige-brown .form-section,
+body.accessibility-active.color-beige-brown .have-absolut,
+body.accessibility-active.color-beige-brown .your-absolut,
+body.accessibility-active.color-beige-brown .carousel-container,
+body.accessibility-active.color-beige-brown .carousel-btn,
+body.accessibility-active.color-beige-brown .faq-item,
+body.accessibility-active.color-beige-brown .wetalk-about-block,
+body.accessibility-active.color-beige-brown .contact-info-card,
+body.accessibility-active.color-beige-brown footer {
+    background-color: #f5f5dc;
+    color: #8b4513;
+    border-color: #d2b48c;
+}
+
+body.accessibility-active.color-beige-brown .header-top-right p,
+body.accessibility-active.color-beige-brown .header-top-right-phone p,
+body.accessibility-active.color-beige-brown .accordion-content p,
+body.accessibility-active.color-beige-brown .form-group label,
+body.accessibility-active.color-beige-brown .footer-top-col p,
+body.accessibility-active.color-beige-brown .footer-top-col li,
+body.accessibility-active.color-beige-brown .faq-item p,
+body.accessibility-active.color-beige-brown .contact-info-card p {
+    color: #654321;
+}
+
+body.accessibility-active.color-blue-darkblue {
+    background-color: #e6f3ff;
+    color: #00008b;
+}
+
+body.accessibility-active.color-blue-darkblue .header-top,
+body.accessibility-active.color-blue-darkblue .header-bottom,
+body.accessibility-active.color-blue-darkblue .block-absolut,
+body.accessibility-active.color-blue-darkblue .trusted-block,
+body.accessibility-active.color-blue-darkblue .accordion-label,
+body.accessibility-active.color-blue-darkblue .accordion-content,
+body.accessibility-active.color-blue-darkblue .contact-form-container,
+body.accessibility-active.color-blue-darkblue .form-section,
+body.accessibility-active.color-blue-darkblue .have-absolut,
+body.accessibility-active.color-blue-darkblue .your-absolut,
+body.accessibility-active.color-blue-darkblue .carousel-container,
+body.accessibility-active.color-blue-darkblue .carousel-btn,
+body.accessibility-active.color-blue-darkblue .faq-item,
+body.accessibility-active.color-blue-darkblue .wetalk-about-block,
+body.accessibility-active.color-blue-darkblue .contact-info-card,
+body.accessibility-active.color-blue-darkblue footer {
+    background-color: #e6f3ff;
+    color: #00008b;
+    border-color: #a0c8ff;
+}
+
+body.accessibility-active.color-blue-darkblue .header-top-right p,
+body.accessibility-active.color-blue-darkblue .header-top-right-phone p,
+body.accessibility-active.color-blue-darkblue .accordion-content p,
+body.accessibility-active.color-blue-darkblue .form-group label,
+body.accessibility-active.color-blue-darkblue .footer-top-col p,
+body.accessibility-active.color-blue-darkblue .footer-top-col li,
+body.accessibility-active.color-blue-darkblue .faq-item p,
+body.accessibility-active.color-blue-darkblue .contact-info-card p {
+    color: #0000cd;
+}
+
+body.accessibility-active.images-disabled img {
+    display: none !important;
+}
+
+body.accessibility-active.images-disabled .image-placeholder {
+    display: block;
+    background: #f8f9fa;
+    border: 1px dashed #dee2e6;
+    padding: 2rem;
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .color-schemes {
+        grid-template-columns: 1fr;
+    }
+    
+    body.accessibility-active {
+        padding: 0 1rem;
+    }
+}
+
+body.accessibility-active .section-start,
+body.accessibility-active .accepting,
+body.accessibility-active .trusted,
+body.accessibility-active .another,
+body.accessibility-active .slider,
+body.accessibility-active .enter,
+body.accessibility-active .wetalk {
+    max-width: 100%;
+    overflow-x: hidden;
+}
