@@ -1,0 +1,265 @@
+
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-accent: #FFF3D4;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+    --accent-color: #FF3F3F;
+    --accent-hover: #e03535;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --gradient-start: #EAF8FF;
+    --gradient-end: #FFFFFF;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-accent: #2a2400;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-muted: #808080;
+    --border-color: #404040;
+    --accent-color: #ff6b6b;
+    --accent-hover: #ff5252;
+    --card-bg: #1e1e1e;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --gradient-start: #1a2a3a;
+    --gradient-end: #121212;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-top, .header-bottom {
+    background-color: var(--bg-primary);
+    border-bottom-color: var(--border-color);
+}
+
+.header-top-right p, .header-top-right-phone p {
+    color: var(--text-secondary);
+}
+
+.header-bottom nav a {
+    color: var(--text-primary);
+}
+
+.header-bottom nav a:hover {
+    color: var(--accent-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent-color);
+}
+
+.theme-icon {
+    font-style: normal;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.theme-icon.moon::before {
+    content: "🌙";
+}
+
+.theme-icon.sun::before {
+    content: "☀️";
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(180deg);
+}
+
+.section-start {
+    background: linear-gradient(var(--gradient-start), var(--gradient-end));
+}
+
+.accepting {
+    background: var(--bg-accent);
+}
+
+.block-absolut {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+.trusted-block {
+    border-color: var(--border-color);
+    background: var(--card-bg);
+}
+
+.trusted-block:hover {
+    border-color: var(--accent-color);
+}
+
+.accordion-label {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.accordion-content {
+    background: var(--card-bg);
+}
+
+.accordion-input:checked + .accordion-label {
+    background: var(--accent-color);
+    color: white;
+}
+
+.accordion-content p {
+    border-bottom-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.contact-form-container, .form-section, .have-absolut, .your-absolut {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-group label {
+    color: var(--text-secondary);
+}
+
+button, .accepting-button, .submit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .accepting-button:hover, .submit-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+footer {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.footer-top-col b, .footer-top-col h2 {
+    color: var(--text-primary);
+}
+
+.footer-top-col p, .footer-top-col li {
+    color: var(--text-secondary);
+}
+
+.footer-top-col-input-button input {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.carousel-container {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+.carousel-btn {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+.faq-item h3 {
+    color: var(--text-primary);
+}
+
+.faq-item p {
+    color: var(--text-secondary);
+}
+
+.wetalk-about-block {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+.wetalk-about-block h3 {
+    color: var(--text-primary);
+}
+
+.wetalk-about-block b {
+    color: var(--accent-color);
+}
+
+.map-placeholder {
+    border-color: var(--border-color);
+}
+
+.map-button {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.map-button:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.contact-info-card {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+.contact-info-card h3 {
+    color: var(--text-primary);
+}
+
+.contact-info-card p {
+    color: var(--text-secondary);
+}
+
+.contact-info-card span {
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        margin-right: 8px;
+    }
+    
+    .theme-icon {
+        font-size: 16px;
+    }
+}

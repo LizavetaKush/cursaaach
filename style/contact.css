@@ -1,0 +1,326 @@
+.contact-main {
+    padding-top: 2rem;
+}
+
+.contact-hero {
+    background: linear-gradient(#EAF8FF, #FFFFFF);
+    padding: 4rem 10rem;
+    text-align: center;
+}
+
+.contact-hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 1rem;
+}
+
+.contact-hero-content p {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.contact-content {
+    padding: 5rem 10rem;
+    display: flex;
+    gap: 4rem;
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: #FFF3D4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-info-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact-info-card p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.contact-info-card span {
+    color: #FF3F3F;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 1rem;
+}
+
+.contact-form-section {
+    flex: 2;
+}
+
+.contact-form-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+}
+
+.contact-form-container > p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #FF3F3F;
+    outline: none;
+}
+
+.submit-btn {
+    background: #FF3F3F;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: #e03535;
+}
+
+.faq-preview {
+    background: #F9F9F9;
+    padding: 5rem 10rem;
+}
+
+.faq-preview-content {
+    text-align: center;
+}
+
+.faq-preview-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+}
+
+.faq-preview-content > p {
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.faq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.faq-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.faq-link {
+    color: #FF3F3F;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.faq-link:hover {
+    text-decoration: underline;
+}
+
+.map-section {
+    padding: 5rem 10rem;
+}
+
+.map-container h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 2rem;
+}
+
+.map-placeholder {
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+}
+
+.map-fallback {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.map-fallback img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.map-button {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.map-button:hover {
+    background: #f0f0f0;
+}
+
+@media (max-width: 1200px) {
+    .contact-hero,
+    .contact-content,
+    .faq-preview,
+    .map-section {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .contact-info-card {
+        flex: 1;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero,
+    .contact-content,
+    .faq-preview,
+    .map-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    .contact-hero-content h1 {
+        font-size: 2.5em;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+    }
+}
+
+.header-bottom nav a.active {
+    color: #FF3F3F;
+    font-weight: 600;
+}

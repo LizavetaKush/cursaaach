@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация / Авторизация</title>
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/theme.css">
+    <link rel="stylesheet" href="../style/auth.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <a href="../index.html">Logo</a>
+            <div class="header-top-right">
+                <p>email@mail.com</p>
+                <div class="header-top-right-phone">
+                    <img src="../img/phone.png" alt="phone">
+                    <p>(000) 888-88</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="#">Products</a>
+                <a href="#">Pages</a>
+                <a href="#">Blog</a>
+                <a href="contact.html">Contact us</a>
+            </nav>
+            <div class="header-bottom-right">
+                <button class="header-bottom-right-language"><img src="../img/language.png" alt="language"> English</button>
+                <button class="header-bottom-right-auth" id="auth-button">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Вход</button>
+                <button class="auth-tab" data-tab="register">Регистрация</button>
+            </div>
+
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email или телефон</label>
+                    <input type="text" id="login-email" name="email" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" name="password" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="remember-me">
+                        <span class="checkmark"></span>
+                        Запомнить меня
+                    </label>
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+
+                <button type="submit" class="auth-submit-btn">Войти</button>
+            </form>
+
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="phone">Номер телефона <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="+375 (XX) XXX-XX-XX" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Дата рождения <span class="required">*</span></label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label>Способ задания пароля <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-container">
+                            <input type="radio" name="password-type" value="auto" checked>
+                            <span class="radiomark"></span>
+                            Автоматическая генерация
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="password-type" value="manual">
+                            <span class="radiomark"></span>
+                            Ввести самостоятельно
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group manual-password hidden">
+                    <label for="password">Пароль <span class="required">*</span></label>
+                    <input type="password" id="password" name="password">
+                    <div class="password-requirements">
+                        Пароль должен содержать: минимум 8 символов, заглавную и строчную буквы, цифру, специальный символ
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group manual-password hidden">
+                    <label for="confirm-password">Подтверждение пароля <span class="required">*</span></label>
+                    <input type="password" id="confirm-password" name="confirm-password">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lastname">Фамилия <span class="required">*</span></label>
+                        <input type="text" id="lastname" name="lastname" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname">Имя <span class="required">*</span></label>
+                        <input type="text" id="firstname" name="firstname" required>
+                        <div class="error-message"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="middlename">Отчество</label>
+                    <input type="text" id="middlename" name="middlename">
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Никнейм <span class="required">*</span></label>
+                    <div class="username-container">
+                        <input type="text" id="username" name="username" required readonly>
+                        <button type="button" id="generate-username" class="generate-btn">Сгенерировать</button>
+                    </div>
+                    <div class="username-info">Осталось попыток генерации: <span id="generate-attempts">5</span></div>
+                    <div class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        <span class="checkmark"></span>
+                        Я прочитал(а) и принимаю <a href="#" target="_blank">Соглашение пользователя</a> <span class="required">*</span>
+                    </label>
+                    <div class="error-message"></div>
+                </div>
+
+                <button type="submit" id="register-btn" class="auth-submit-btn" disabled>Зарегистрироваться</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-top-col">
+                <h1>Logo</h1>
+                <p>support@9.com</p>
+                <p>+888-888-88</p>
+            </div>
+            <div class="footer-top-col">
+                <b>Links</b>
+                <ul>
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>Pricing</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Features</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <b>Help & Support</b>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Support</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <h2>Our Address</h2>
+                <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+                <div class="footer-top-col-img">
+                    <img src="../img/facebook.png" alt="facebook">
+                    <img src="../img/linkedin.png" alt="linkedin"> 
+                    <img src="../img/twitter.png" alt="twitter">
+                    <img src="../img/google-plus.png" alt="google-plus">
+                </div>
+                <div class="footer-top-col-inp">
+                    <p>SIGN UP FOR NEWSLETTER</p>
+                    <div class="footer-top-col-input-button">
+                        <input placeholder="Email address">
+                        <button class="accepting-button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Copyright 2021 Your company name</p>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>
