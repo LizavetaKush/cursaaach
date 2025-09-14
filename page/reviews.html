@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - Payment Gateway</title>
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/reviews.css">
+</head>
+<body>
+    <header>
+    </header>
+
+    <main class="reviews-main">
+        <section class="reviews-hero">
+            <h1>Отзывы наших клиентов</h1>
+            <p>Узнайте, что говорят о нас те, кто уже использует наши услуги</p>
+        </section>
+
+        <section class="reviews-filters">
+            <div class="reviews-search">
+                <input type="text" id="reviewsSearch" placeholder="Поиск по отзывам...">
+                <button onclick="searchReviews()">Найти</button>
+            </div>
+            
+            <div class="reviews-controls">
+                <select id="serviceFilter" onchange="filterReviews()">
+                    <option value="all">Все услуги</option>
+                    <option value="Invoices">Invoices</option>
+                    <option value="Quick Checkout">Quick Checkout</option>
+                    <option value="API">API</option>
+                </select>
+                
+                <select id="ratingFilter" onchange="filterReviews()">
+                    <option value="all">Все оценки</option>
+                    <option value="5">5 звезд</option>
+                    <option value="4">4+ звезды</option>
+                    <option value="3">3+ звезды</option>
+                </select>
+                
+                <select id="sortReviews" onchange="sortReviews()">
+                    <option value="date">По дате (новые)</option>
+                    <option value="rating">По оценке</option>
+                    <option value="popular">По полезности</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="reviews-stats">
+            <div class="stats-card">
+                <h3>4.8/5</h3>
+                <p>Средняя оценка</p>
+            </div>
+            <div class="stats-card">
+                <h3>1,250+</h3>
+                <p>Всего отзывов</p>
+            </div>
+            <div class="stats-card">
+                <h3>98%</h3>
+                <p>Довольных клиентов</p>
+            </div>
+        </section>
+
+        <section class="reviews-list">
+            <div id="reviewsLoading" class="loading">Загрузка отзывов...</div>
+            <div id="reviewsContainer" class="reviews-container"></div>
+            <div id="noReviews" class="no-results" style="display: none;">
+                <p>Отзывы не найдены. Попробуйте изменить параметры поиска.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="../js/reviews.js"></script>
+</body>
+</html>

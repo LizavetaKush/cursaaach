@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши услуги - Payment Gateway</title>
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/user-menu.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/services.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <a href="#">Logo</a>
+            <div class="header-top-right">
+                <p>email@mail.com</p>
+                <div class="header-top-right-phone">
+                    <img src="../img/phone.png" alt="phone">
+                    <p>(000) 888-88</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <a href="#">Home</a>
+                <a href="services.html">Products</a>
+                <a href="#">Pages</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact us</a>
+            </nav>
+            <div class="header-bottom-right">
+                <button class="header-bottom-right-language"><img src="../img/language.png" alt="language"> English</button>
+                <a href="auth.html" class="header-bottom-right-auth">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="services-main">
+        <section class="services-hero">
+            <h1>Наши услуги</h1>
+            <p>Выберите оптимальное решение для вашего бизнеса</p>
+        </section>
+
+        <section class="filters-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Поиск услуг...">
+                <button onclick="searchServices()">Найти</button>
+            </div>
+            
+            <div class="filter-controls">
+                <select id="categoryFilter" onchange="filterServices()">
+                    <option value="all">Все категории</option>
+                    <option value="Invoices">Invoices</option>
+                    <option value="Quick Checkout">Quick Checkout</option>
+                    <option value="API">API</option>
+                </select>
+                
+                <select id="sortSelect" onchange="sortServices()">
+                    <option value="name">По названию</option>
+                    <option value="price">По цене</option>
+                    <option value="rating">По рейтингу</option>
+                    <option value="popularity">По популярности</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="services-list">
+            <div id="loading" class="loading">Загрузка услуг...</div>
+            <div id="servicesContainer" class="services-container"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>Услуги не найдены. Попробуйте изменить параметры поиска.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="../js/services.js"></script>
+</body>
+</html>

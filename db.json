@@ -23,8 +23,98 @@
       "middlename": "",
       "username": "greatwolf654rew",
       "password": "yfea!ia)@51A",
-      "role": "user",
+      "role": "admin",
       "registrationDate": "2025-09-13T20:05:58.145Z"
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "category": "Invoices",
+      "title": "Простое создание счетов",
+      "shortDescription": "Создавайте и отправляйте счета за секунды",
+      "fullDescription": "Наш конструктор счетов позволяет создавать профессиональные счета без технических знаний. Добавляйте логотип, описание товаров, налоги.",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "rating": 4.8,
+      "reviewsCount": 124,
+      "icon": "../img/Invoices.png",
+      "isPopular": true,
+      "features": [
+        "Без подписок",
+        "Учет налогов",
+        "Автоматические напоминания"
+      ]
+    },
+    {
+      "id": "2",
+      "category": "Quick Checkout",
+      "title": "Быстрая оплата без сайта",
+      "shortDescription": "Принимайте платежи через готовую страницу",
+      "fullDescription": "Не нужен собственный сайт? Используйте нашу уникальную ссылку для приема платежей.",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "rating": 4.5,
+      "reviewsCount": 89,
+      "icon": "../img/quick.png",
+      "isPopular": false,
+      "features": [
+        "Готовая страница",
+        "Настройка уведомлений",
+        "Прием карт"
+      ]
+    },
+    {
+      "id": "4b2f",
+      "title": "ger",
+      "category": "Invoices",
+      "shortDescription": "rgergergerge",
+      "fullDescription": "rgergergerge",
+      "price": "100000$",
+      "transactionFee": "1%",
+      "rating": 4.5,
+      "reviewsCount": 0,
+      "icon": "../img/default-service.png",
+      "isPopular": false,
+      "features": [
+        ""
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": "1",
+      "serviceId": "1",
+      "status": "completed",
+      "orderDate": "2023-10-25T14:30:00.000Z",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "canReview": false
+    },
+    {
+      "id": "d7b0",
+      "userId": "1",
+      "serviceId": "2",
+      "status": "active",
+      "orderDate": "2025-09-14T10:25:28.458Z",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "canReview": true
     }
   ]
 }

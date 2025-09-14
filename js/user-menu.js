@@ -372,5 +372,5 @@ function showProfileModal() {
 }
 
 function showAdminPanel() {
-    alert('Админ панель будет реализована позже');
+    window.location.href = 'admin.html';
 }
