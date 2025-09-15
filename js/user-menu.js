@@ -3,6 +3,63 @@ document.addEventListener('DOMContentLoaded', function() {
     applyAccessibilitySettings(); 
 });
 
+const translation = {
+    'en': {
+        'ui.user.avatar': 'U',
+        'ui.user.name': 'User',
+        'ui.dropdown.profile': '👤 Profile',
+        'ui.dropdown.admin': '⚙️ Admin panel',
+        'ui.dropdown.settings': '⚙️ Settings',
+        'ui.dropdown.logout': '🚪 Logout',
+        
+        'accessibility.title': '⚙️ Accessibility Settings',
+        'accessibility.fontsize': 'Font size',
+        'accessibility.fontsize.normal': 'Normal',
+        'accessibility.fontsize.large': 'Large (+25%)',
+        'accessibility.fontsize.xlarge': 'Very large (+50%)',
+        'accessibility.colorscheme': 'Color scheme',
+        'accessibility.colorscheme.default': 'Default',
+        'accessibility.colorscheme.blackwhite': 'Black background / White text',
+        'accessibility.colorscheme.blackgreen': 'Black background / Green text',
+        'accessibility.colorscheme.beigebrown': 'Beige background / Brown text',
+        'accessibility.colorscheme.bluedarkblue': 'Blue background / Dark blue text',
+        'accessibility.images': 'Images',
+        'accessibility.images.disable': 'Disable images',
+        'accessibility.reset': 'Reset settings',
+        'accessibility.save': 'Save',
+        'accessibility.image.placeholder': 'Image disabled in accessibility settings',
+        
+        'modal.close': 'Х'
+    },
+    'ru': {
+        'ui.user.avatar': 'П',
+        'ui.user.name': 'Пользователь',
+        'ui.dropdown.profile': '👤 Профиль',
+        'ui.dropdown.admin': '⚙️ Админ панель',
+        'ui.dropdown.settings': '⚙️ Настройки',
+        'ui.dropdown.logout': '🚪 Выйти',
+        
+        'accessibility.title': '⚙️ Настройки доступности',
+        'accessibility.fontsize': 'Размер шрифта',
+        'accessibility.fontsize.normal': 'Обычный',
+        'accessibility.fontsize.large': 'Большой (+25%)',
+        'accessibility.fontsize.xlarge': 'Очень большой (+50%)',
+        'accessibility.colorscheme': 'Цветовая схема',
+        'accessibility.colorscheme.default': 'Стандартная',
+        'accessibility.colorscheme.blackwhite': 'Черный фон / Белый текст',
+        'accessibility.colorscheme.blackgreen': 'Черный фон / Зеленый текст',
+        'accessibility.colorscheme.beigebrown': 'Бежевый фон / Коричневый текст',
+        'accessibility.colorscheme.bluedarkblue': 'Голубой фон / Темно-синий текст',
+        'accessibility.images': 'Изображения',
+        'accessibility.images.disable': 'Отключить изображения',
+        'accessibility.reset': 'Сбросить настройки',
+        'accessibility.save': 'Сохранить',
+        'accessibility.image.placeholder': 'Изображение отключено в настройках доступности',
+        
+        'modal.close': 'Х'
+    }
+};
+
 function updateHeaderAuthState() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
     const authButton = document.querySelector('.header-bottom-right-auth');
@@ -27,21 +84,28 @@ function createUserDropdown(user, container) {
     dropdown.id = 'user-dropdown';
     dropdown.className = 'user-dropdown';
     
+    const currentLang = localStorage.getItem('language') || 'ru';
+    const t = translation[currentLang];
+    
     dropdown.innerHTML = `
         <button class="user-menu-btn">
-            <span class="user-avatar">${user.firstname?.charAt(0) || 'U'}</span>
-            <span class="user-name">${user.firstname || 'User'}</span>
+            <span class="user-avatar">${user.firstname?.charAt(0) || t['ui.user.avatar']}</span>
+            <span class="user-name">${user.firstname || t['ui.user.name']}</span>
             <span class="dropdown-arrow">▼</span>
         </button>
         <div class="dropdown-menu hidden">
-            <button class="dropdown-item profile-btn">👤 Профиль</button>
-            ${user.role === 'admin' ? '<button class="dropdown-item admin-btn">⚙️ Админ панель</button>' : ''}
-            <button class="dropdown-item settings-btn">⚙️ Настройки</button>
-            <button class="dropdown-item logout-btn">🚪 Выйти</button>
+            <button class="dropdown-item profile-btn" data-i18n="ui.dropdown.profile">👤 Профиль</button>
+            ${user.role === 'admin' ? `<button class="dropdown-item admin-btn" data-i18n="ui.dropdown.admin">⚙️ Админ панель</button>` : ''}
+            <button class="dropdown-item settings-btn" data-i18n="ui.dropdown.settings">⚙️ Настройки</button>
+            <button class="dropdown-item logout-btn" data-i18n="ui.dropdown.logout">🚪 Выйти</button>
         </div>
     `;
     
     container.appendChild(dropdown);
+
+    setTimeout(() => {
+        applytranslationToElement(dropdown, currentLang);
+    }, 0);
     
     const menuBtn = dropdown.querySelector('.user-menu-btn');
     const dropdownMenu = dropdown.querySelector('.dropdown-menu');
@@ -70,78 +134,81 @@ function handleLogout() {
 }
 
 function showAccessibilitySettings() {
+    const currentLang = localStorage.getItem('language') || 'ru';
+    const t = translation[currentLang];
+    
     const modalHTML = `
         <div class="modal-overlay" id="accessibility-modal">
             <div class="modal accessibility-modal">
                 <div class="modal-header">
-                    <h2 class="modal-title">⚙️ Настройки доступности</h2>
-                    <button class="modal-close">&times;</button>
+                    <h2 class="modal-title" data-i18n="accessibility.title">⚙️ Настройки доступности</h2>
+                    <button class="modal-close" data-i18n="modal.close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="accessibility-section">
-                        <h3>Размер шрифта</h3>
+                        <h3 data-i18n="accessibility.fontsize">Размер шрифта</h3>
                         <div class="radio-group">
                             <label class="radio-container">
                                 <input type="radio" name="font-size" value="normal" checked>
                                 <span class="radiomark"></span>
-                                Обычный
+                                <span data-i18n="accessibility.fontsize.normal">Обычный</span>
                             </label>
                             <label class="radio-container">
                                 <input type="radio" name="font-size" value="large">
                                 <span class="radiomark"></span>
-                                Большой (+25%)
+                                <span data-i18n="accessibility.fontsize.large">Большой (+25%)</span>
                             </label>
                             <label class="radio-container">
                                 <input type="radio" name="font-size" value="x-large">
                                 <span class="radiomark"></span>
-                                Очень большой (+50%)
+                                <span data-i18n="accessibility.fontsize.xlarge">Очень большой (+50%)</span>
                             </label>
                         </div>
                     </div>
                     
                     <div class="accessibility-section">
-                        <h3>Цветовая схема</h3>
+                        <h3 data-i18n="accessibility.colorscheme">Цветовая схема</h3>
                         <div class="color-schemes">
                             <label class="color-scheme-option">
                                 <input type="radio" name="color-scheme" value="default" checked>
                                 <span class="color-scheme-preview default-scheme"></span>
-                                Стандартная
+                                <span data-i18n="accessibility.colorscheme.default">Стандартная</span>
                             </label>
                             <label class="color-scheme-option">
                                 <input type="radio" name="color-scheme" value="black-white">
                                 <span class="color-scheme-preview black-white-scheme"></span>
-                                Черный фон / Белый текст
+                                <span data-i18n="accessibility.colorscheme.blackwhite">Черный фон / Белый текст</span>
                             </label>
                             <label class="color-scheme-option">
                                 <input type="radio" name="color-scheme" value="black-green">
                                 <span class="color-scheme-preview black-green-scheme"></span>
-                                Черный фон / Зеленый текст
+                                <span data-i18n="accessibility.colorscheme.blackgreen">Черный фон / Зеленый текст</span>
                             </label>
                             <label class="color-scheme-option">
                                 <input type="radio" name="color-scheme" value="beige-brown">
                                 <span class="color-scheme-preview beige-brown-scheme"></span>
-                                Бежевый фон / Коричневый текст
+                                <span data-i18n="accessibility.colorscheme.beigebrown">Бежевый фон / Коричневый текст</span>
                             </label>
                             <label class="color-scheme-option">
                                 <input type="radio" name="color-scheme" value="blue-darkblue">
                                 <span class="color-scheme-preview blue-darkblue-scheme"></span>
-                                Голубой фон / Темно-синий текст
+                                <span data-i18n="accessibility.colorscheme.bluedarkblue">Голубой фон / Темно-синий текст</span>
                             </label>
                         </div>
                     </div>
                     
                     <div class="accessibility-section">
-                        <h3>Изображения</h3>
+                        <h3 data-i18n="accessibility.images">Изображения</h3>
                         <label class="checkbox-container">
                             <input type="checkbox" id="disable-images">
                             <span class="checkmark"></span>
-                            Отключить изображения
+                            <span data-i18n="accessibility.images.disable">Отключить изображения</span>
                         </label>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="auth-submit-btn secondary" id="reset-settings">Сбросить настройки</button>
-                    <button type="button" class="auth-submit-btn" id="save-accessibility">Сохранить</button>
+                    <button type="button" class="auth-submit-btn secondary" id="reset-settings" data-i18n="accessibility.reset">Сбросить настройки</button>
+                    <button type="button" class="auth-submit-btn" id="save-accessibility" data-i18n="accessibility.save">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -149,6 +216,8 @@ function showAccessibilitySettings() {
     
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
+    applytranslationToElement(document.getElementById('accessibility-modal'), currentLang);
+    
     loadAccessibilitySettings();
     
     const modal = document.getElementById('accessibility-modal');
@@ -373,4 +442,23 @@ function showProfileModal() {
 
 function showAdminPanel() {
     window.location.href = 'admin.html';
+}
+
+function applytranslationToElement(element, lang) {
+    const elements = element.querySelectorAll('[data-i18n]');
+    
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translation[lang][key]) {
+            el.textContent = translation[lang][key];
+        }
+    });
+
+    const inputs = element.querySelectorAll('[data-i18n-placeholder]');
+    inputs.forEach(input => {
+        const key = input.getAttribute('data-i18n-placeholder');
+        if (translation[lang][key]) {
+            input.placeholder = translation[lang][key];
+        }
+    });
 }

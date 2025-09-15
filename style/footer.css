@@ -75,3 +75,321 @@ footer{
     text-align: center;
     font-size: 1.1em;
 }
+
+@media (max-width: 1200px) {
+    footer {
+        padding: 8rem 5rem 4rem 5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    footer {
+        padding: 6rem 4rem 3rem 4rem;
+        gap: 4rem;
+    }
+    
+    .footer-top {
+        flex-wrap: wrap;
+        gap: 3rem;
+    }
+    
+    .footer-top-col {
+        width: 45%;
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 900px) {
+    footer {
+        padding: 5rem 3rem 3rem 3rem;
+    }
+    
+    .footer-top-col {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .footer-top-col-img {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 4rem 2rem 2rem 2rem;
+        gap: 3rem;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+    }
+    
+    .footer-top-col {
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-top-col h1 {
+        font-size: 1.8em;
+    }
+    
+    .footer-top-col b {
+        font-size: 1.6em;
+    }
+    
+    .footer-top-col p {
+        font-size: 1.1em;
+    }
+    
+    .footer-top-col ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .footer-top-col ul li {
+        margin-top: 0;
+        padding: 0.5rem 1rem;
+        background: #f8f9fa;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    .footer-top-col ul li:hover {
+        background: #e9ecef;
+    }
+    
+    .footer-top-col-img {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer-top-col-img img {
+        width: 35px;
+        height: 35px;
+        transition: transform 0.3s ease;
+    }
+    
+    .footer-top-col-img img:hover {
+        transform: scale(1.1);
+    }
+    
+    .footer-top-col-input-button {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .footer-top-col-input-button input {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .footer-top-col-input-button .accepting-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 3rem 1.5rem 2rem 1.5rem;
+        gap: 2.5rem;
+    }
+    
+    .footer-top-col h1 {
+        font-size: 1.6em;
+    }
+    
+    .footer-top-col b {
+        font-size: 1.4em;
+    }
+    
+    .footer-top-col p {
+        font-size: 1em;
+    }
+    
+    .footer-top-col ul {
+        gap: 0.5rem;
+    }
+    
+    .footer-top-col ul li {
+        padding: 0.4rem 0.8rem;
+        font-size: 1em;
+    }
+    
+    .footer-top-col-inp p {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-bottom p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 2.5rem 1rem 2rem 1rem;
+        gap: 2rem;
+    }
+    
+    .footer-top-col {
+        gap: 1rem;
+    }
+    
+    .footer-top-col h1 {
+        font-size: 1.5em;
+    }
+    
+    .footer-top-col b {
+        font-size: 1.3em;
+    }
+    
+    .footer-top-col-img img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .footer-top-col-input-button input {
+        padding: 0.8rem;
+        font-size: 0.9em;
+    }
+    
+    .footer-top-col-input-button .accepting-button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    footer {
+        padding: 2rem 1rem 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+    
+    .footer-top {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .footer-top-col {
+        width: 45%;
+        min-width: 200px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    footer {
+        padding: 4rem 3rem 3rem 3rem;
+    }
+    
+    .footer-top {
+        justify-content: space-around;
+    }
+    
+    .footer-top-col {
+        width: 30%;
+        min-width: 200px;
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @media (max-width: 768px) {
+        .footer-top-col ul li {
+            border: 1px solid #ddd;
+        }
+        
+        .footer-top-col-input-button input {
+            border-width: 1.5px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    @media (max-width: 768px) {
+        .footer-top-col-img img,
+        .footer-top-col ul li {
+            transition: none;
+        }
+    }
+}
+
+@media (prefers-contrast: high) {
+    @media (max-width: 768px) {
+        .footer-top-col ul li {
+            border: 2px solid #000;
+            background: #fff;
+        }
+        
+        .footer-top-col-input-button input {
+            border-width: 2px;
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    @media (max-width: 768px) {
+        .footer-top-col ul li {
+            background: #333;
+            color: #fff;
+            border-color: #555;
+        }
+        
+        .footer-top-col ul li:hover {
+            background: #444;
+        }
+        
+        .footer-top-col-input-button input {
+            background: #2a2a2a;
+            color: #fff;
+            border-color: #555;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    footer {
+        padding: 2rem 0.5rem 1.5rem 0.5rem;
+    }
+    
+    .footer-top-col ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .footer-top-col ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-top-col-img {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .footer-top-col-img img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media print {
+    footer {
+        padding: 2rem 1rem !important;
+        gap: 2rem !important;
+    }
+    
+    .footer-top-col-img,
+    .footer-top-col-input-button {
+        display: none !important;
+    }
+}

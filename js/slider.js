@@ -220,5 +220,6 @@ class TestimonialCarousel {
 
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = new TestimonialCarousel();
-    carousel.resumeAutoRotate(); 
+    window.carouselInstance = carousel;
+    carousel.resumeAutoRotate();
 });

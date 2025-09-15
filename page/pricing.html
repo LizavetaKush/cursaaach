@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тарифы и цены - Payment Gateway</title>
+    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/theme.css">
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/user-menu.css">
+    <link rel="stylesheet" href="../style/accessibility.css">
+    <link rel="stylesheet" href="../style/pricing.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <a href="#" class="logo">Logo</a>
+            <div class="header-top-right">
+                <p>email@mail.com</p>
+                <div class="header-top-right-phone">
+                    <img src="../img/phone.png" alt="phone">
+                    <p>(000) 888-88</p>
+                </div>
+            </div>
+            <button class="mobile-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <div class="header-bottom">
+            <nav class="nav-menu">
+                <a href="home.html">Home</a>
+                <a href="services.html">Products</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact us</a>
+                <a href="pricing.html">Pricing</a>
+            </nav>
+            <div class="header-bottom-right">
+                <button class="header-bottom-right-language">
+                    <img src="../img/language.png" alt="language"> 
+                    <span>English</span>
+                </button>
+                <a href="auth.html" class="header-bottom-right-auth">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+<main class="pricing-main">
+    <section class="pricing-hero">
+        <h1 data-i18n="pricing.hero.title">Прозрачные тарифы для вашего бизнеса</h1>
+        <p data-i18n="pricing.hero.subtitle">Выберите оптимальный план, который подходит именно вам</p>
+    </section>
+
+    <section class="pricing-switcher">
+        <div class="switcher-container">
+            <span data-i18n="pricing.switcher.monthly">Ежемесячно</span>
+            <label class="switch">
+                <input type="checkbox" id="billingToggle">
+                <span class="slider round"></span>
+            </label>
+            <span data-i18n="pricing.switcher.yearly">Ежегодно <small>(−20%)</small></span>
+        </div>
+    </section>
+
+    <section class="pricing-plans">
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h3 data-i18n="pricing.plan.startup">Стартовый</h3>
+                    <div class="price" data-monthly="999" data-yearly="799">
+                        <span class="amount">999</span>
+                        <span class="currency">₽/мес</span>
+                    </div>
+                    <p data-i18n="pricing.plan.startup.desc">Идеально для малого бизнеса и стартапов</p>
+                </div>
+                <div class="plan-features">
+                    <ul>
+                        <li data-i18n="pricing.feature.transactions" data-i18n-params='{"count": "100"}'>✅ До 100 транзакций в месяц</li>
+                        <li data-i18n="pricing.feature.fee" data-i18n-params='{"percent": "2.5"}'>✅ Комиссия 2.5% за операцию</li>
+                        <li data-i18n="pricing.feature.support.basic">✅ Базовая техподдержка</li>
+                        <li data-i18n="pricing.feature.invoices">✅ Онлайн-инвойсы</li>
+                        <li data-i18n="pricing.feature.multicurrency">❌ Мультивалютность</li>
+                        <li data-i18n="pricing.feature.analytics">❌ Расширенная аналитика</li>
+                        <li data-i18n="pricing.feature.support.priority">❌ Приоритетная поддержка</li>
+                    </ul>
+                </div>
+                <button class="pricing-btn" data-i18n="pricing.button.start">Начать бесплатно</button>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge" data-i18n="pricing.plan.popular">Популярный</div>
+                <div class="plan-header">
+                    <h3 data-i18n="pricing.plan.business">Бизнес</h3>
+                    <div class="price" data-monthly="2499" data-yearly="1999">
+                        <span class="amount">2499</span>
+                        <span class="currency">₽/мес</span>
+                    </div>
+                    <p data-i18n="pricing.plan.business.desc">Для растущего бизнеса с повышенными потребностями</p>
+                </div>
+                <div class="plan-features">
+                    <ul>
+                        <li data-i18n="pricing.feature.transactions" data-i18n-params='{"count": "1000"}'>✅ До 1000 транзакций в месяц</li>
+                        <li data-i18n="pricing.feature.fee" data-i18n-params='{"percent": "1.8"}'>✅ Комиссия 1.8% за операцию</li>
+                        <li data-i18n="pricing.feature.support.priority">✅ Приоритетная поддержка</li>
+                        <li data-i18n="pricing.feature.multicurrency">✅ Мультивалютность</li>
+                        <li data-i18n="pricing.feature.analytics">✅ Расширенная аналитика</li>
+                        <li data-i18n="pricing.feature.api">✅ Интеграция с API</li>
+                        <li data-i18n="pricing.feature.custom">❌ Кастомные решения</li>
+                    </ul>
+                </div>
+                <button class="pricing-btn primary" data-i18n="pricing.button.choose">Выбрать тариф</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-header">
+                    <h3 data-i18n="pricing.plan.premium">Премиум</h3>
+                    <div class="price" data-monthly="4999" data-yearly="3999">
+                        <span class="amount">4999</span>
+                        <span class="currency">₽/мес</span>
+                    </div>
+                    <p data-i18n="pricing.plan.premium.desc">Для предприятий с высокими объемами платежей</p>
+                </div>
+                <div class="plan-features">
+                    <ul>
+                        <li data-i18n="pricing.feature.unlimited">✅ Неограниченные транзакции</li>
+                        <li data-i18n="pricing.feature.fee" data-i18n-params='{"percent": "1.2"}'>✅ Комиссия 1.2% за операцию</li>
+                        <li data-i18n="pricing.feature.support.personal">✅ 24/7 персональная поддержка</li>
+                        <li data-i18n="pricing.feature.multicurrency">✅ Все валюты мира</li>
+                        <li data-i18n="pricing.feature.custom">✅ Кастомные решения</li>
+                        <li data-i18n="pricing.feature.manager">✅ Dedicated менеджер</li>
+                        <li data-i18n="pricing.feature.white-label">✅ White-label решения</li>
+                    </ul>
+                </div>
+                <button class="pricing-btn" data-i18n="pricing.button.contact">Связаться с sales</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-features">
+        <h2 data-i18n="pricing.features.title">Что входит во все тарифы</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h4>Безопасность PCI DSS</h4>
+                <p>Соответствие международным стандартам безопасности платежей</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h4>Мгновенные выплаты</h4>
+                <p>Вывод средств на карту или счет в течение 24 часов</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌍</div>
+                <h4>Глобальное покрытие</h4>
+                <p>Прием платежей из любой точки мира</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <h4>Детальная отчетность</h4>
+                <p>Полная статистика и аналитика всех операций</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-faq">
+        <h2 data-i18n="pricing.faq.title">Частые вопросы</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4 data-i18n="pricing.faq.q1">Можно ли изменить тариф позже?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="pricing.faq.a1">Да, вы можете в любой момент перейти на другой тарифный план. Изменения вступят в силу со следующего платежного периода.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4 data-i18n="pricing.faq.q2">Есть ли скрытые комиссии?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="pricing.faq.a2">Нет, все комиссии прозрачны и указаны в договоре. Дополнительных скрытых платежей нет.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4 data-i18n="pricing.faq.q3">Предоставляется ли тестовый период?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="pricing.faq.a3">Да, мы предоставляем 14-дневный бесплатный trial период для тестирования всех функций.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h4 data-i18n="pricing.faq.q4">Как происходит подключение?</h4>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="pricing.faq.a4">Подключение занимает менее 5 минут. Просто зарегистрируйтесь, подтвердите email и начните принимать платежи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-cta">
+        <div class="cta-content">
+            <h2 data-i18n="pricing.cta.title">Готовы начать?</h2>
+            <p data-i18n="pricing.cta.subtitle">Присоединяйтесь к тысячам довольных клиентов по всему миру</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary" data-i18n="pricing.cta.create">Создать аккаунт</button>
+                <button class="cta-btn secondary" data-i18n="pricing.cta.contact">Связаться с отделом продаж</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-top-col">
+                <h1>Logo</h1>
+                <p>support@9.com</p>
+                <p>+888-888-88</p>
+            </div>
+            <div class="footer-top-col">
+                <b>Links</b>
+                <ul>
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>Pricing</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Features</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <b>Help & Support</b>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Support</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <h2>Our Address</h2>
+                <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+                <div class="footer-top-col-img">
+                    <img src="../img/facebook.png" alt="facebook">
+                    <img src="../img/linkedin.png" alt="linkedin"> 
+                    <img src="../img/twitter.png" alt="twitter">
+                    <img src="../img/google-plus.png" alt="google-plus">
+                </div>
+                <div class="footer-top-col-inp">
+                    <p>SIGN UP FOR NEWSLETTER</p>
+                    <div class="footer-top-col-input-button">
+                        <input placeholder="Email address"></input>
+                        <button class="accepting-button">Subscirbe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Copyright 2021 Your company name</p>
+        </div>
+    </footer>
+
+    <script src="../js/pricing.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/user-menu.js"></script>
+</body>
+</html>

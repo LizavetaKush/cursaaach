@@ -1,3 +1,119 @@
+const translatio = {
+    'en': {
+        'services.hero.title': 'Our Services',
+        'services.hero.subtitle': 'Choose the optimal solution for your business',
+        'services.search.placeholder': 'Search services...',
+        'services.search.button': 'Search',
+        'services.filter.category': 'All categories',
+        'services.filter.sort.name': 'By name',
+        'services.filter.sort.price': 'By price',
+        'services.filter.sort.rating': 'By rating',
+        'services.filter.sort.popularity': 'By popularity',
+        'services.loading': 'Loading services...',
+        'services.empty': 'Services not found. Try changing search parameters.',
+        'services.category.invoices': 'Invoices',
+        'services.category.quick': 'Quick Checkout',
+        'services.category.api': 'API',
+        
+        'service.category': 'Category:',
+        'service.price': 'Price:',
+        'service.fee': 'Commission:',
+        'service.rating': 'Rating:',
+        'service.reviews': 'reviews',
+        'service.features': 'Features:',
+        
+        'service.action.login': 'Login to order',
+        'service.action.active': '✅ Service active',
+        'service.action.completed': '✓ Completed',
+        'service.action.review': '📝 Leave review',
+        'service.action.order': '🛒 Order',
+        
+        'order.modal.title': 'Service Order',
+        'order.modal.price': 'Price:',
+        'order.modal.fee': 'Commission:',
+        'order.modal.terms': 'Terms of use:',
+        'order.modal.term1': '✅ No hidden fees',
+        'order.modal.term2': '✅ Can be canceled at any time',
+        'order.modal.term3': '✅ 24/7 technical support',
+        'order.modal.term4': '✅ 14-day money-back guarantee',
+        'order.modal.cancel': 'Cancel',
+        'order.modal.confirm': 'Confirm order',
+        
+        'review.modal.title': 'Leave a review',
+        'review.modal.subtitle': 'Share your experience using the service',
+        'review.modal.rating': 'Rating:',
+        'review.modal.title_input': 'Review title:',
+        'review.modal.text': 'Review text:',
+        'review.modal.title_placeholder': 'Brief description',
+        'review.modal.text_placeholder': 'Tell us more about your experience...',
+        'review.modal.publish': 'Publish review',
+        
+        'message.login_required': 'Please log in to place an order',
+        'message.order_success': 'Service successfully ordered!',
+        'message.order_error': 'Error placing order',
+        'message.review_success': 'Thank you for your review!',
+        'message.review_error': 'Error submitting review',
+        'message.fill_all_fields': 'Please fill in all fields',
+        'message.load_error': 'Failed to load services'
+    },
+    'ru': {
+        'services.hero.title': 'Наши услуги',
+        'services.hero.subtitle': 'Выберите оптимальное решение для вашего бизнеса',
+        'services.search.placeholder': 'Поиск услуг...',
+        'services.search.button': 'Найти',
+        'services.filter.category': 'Все категории',
+        'services.filter.sort.name': 'По названию',
+        'services.filter.sort.price': 'По цене',
+        'services.filter.sort.rating': 'По рейтингу',
+        'services.filter.sort.popularity': 'По популярности',
+        'services.loading': 'Загрузка услуг...',
+        'services.empty': 'Услуги не найдены. Попробуйте изменить параметры поиска.',
+        'services.category.invoices': 'Invoices',
+        'services.category.quick': 'Quick Checkout',
+        'services.category.api': 'API',
+        
+        'service.category': 'Категория:',
+        'service.price': 'Цена:',
+        'service.fee': 'Комиссия:',
+        'service.rating': 'Рейтинг:',
+        'service.reviews': 'отзывов',
+        'service.features': 'Возможности:',
+        
+        'service.action.login': 'Войдите для заказа',
+        'service.action.active': '✅ Услуга активна',
+        'service.action.completed': '✓ Завершено',
+        'service.action.review': '📝 Оставить отзыв',
+        'service.action.order': '🛒 Оформить',
+        
+        'order.modal.title': 'Оформление услуги',
+        'order.modal.price': 'Стоимость:',
+        'order.modal.fee': 'Комиссия:',
+        'order.modal.terms': 'Условия использования:',
+        'order.modal.term1': '✅ Без скрытых платежей',
+        'order.modal.term2': '✅ Можно отменить в любой момент',
+        'order.modal.term3': '✅ Техническая поддержка 24/7',
+        'order.modal.term4': '✅ Гарантия возврата в течение 14 дней',
+        'order.modal.cancel': 'Отмена',
+        'order.modal.confirm': 'Подтвердить заказ',
+        
+        'review.modal.title': 'Оставить отзыв',
+        'review.modal.subtitle': 'Поделитесь вашим опытом использования услуги',
+        'review.modal.rating': 'Оценка:',
+        'review.modal.title_input': 'Заголовок отзыва:',
+        'review.modal.text': 'Текст отзыва:',
+        'review.modal.title_placeholder': 'Краткое описание',
+        'review.modal.text_placeholder': 'Расскажите подробнее о вашем опыте...',
+        'review.modal.publish': 'Опубликовать отзыв',
+        
+        'message.login_required': 'Пожалуйста, войдите в систему для оформления заказа',
+        'message.order_success': 'Услуга успешно оформлена!',
+        'message.order_error': 'Ошибка при оформлении заказа',
+        'message.review_success': 'Спасибо за ваш отзыв!',
+        'message.review_error': 'Ошибка при отправке отзыва',
+        'message.fill_all_fields': 'Пожалуйста, заполните все поля',
+        'message.load_error': 'Не удалось загрузить услуги'
+    }
+};
 class ServicesManager {
     constructor() {
         this.services = [];
@@ -5,7 +121,9 @@ class ServicesManager {
         this.currentCategory = 'all';
         this.currentSort = 'name';
         this.searchQuery = '';
-        this.userOrders = []; 
+        this.userOrders = [];
+        this.allOrders = [];
+        this.currentLang = localStorage.getItem('language') || 'ru';
     }
 
     async loadServices() {
@@ -80,6 +198,7 @@ class ServicesManager {
         const container = document.getElementById('servicesContainer');
         const noResults = document.getElementById('noResults');
         const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        const t = translatio[this.currentLang];
         
         if (this.filteredServices.length === 0) {
             container.innerHTML = '';
@@ -116,6 +235,7 @@ class ServicesManager {
                     <p class="service-description">${service.shortDescription}</p>
                     
                     <div class="service-features">
+                        <h4 data-i18n="service.features">Возможности:</h4>
                         <ul>
                             ${service.features.map(feature => `<li>${feature}</li>`).join('')}
                         </ul>
@@ -123,35 +243,39 @@ class ServicesManager {
                     
                     <div class="service-footer">
                         <div>
-                            <div class="service-price">${service.price}</div>
-                            <small>Комиссия: ${service.transactionFee}</small>
+                            <div class="service-price">
+                                <span data-i18n="service.price">Цена:</span> ${service.price}
+                            </div>
+                            <small>
+                                <span data-i18n="service.fee">Комиссия:</span> ${service.transactionFee}
+                            </small>
                         </div>
                         <div class="service-rating">
                             <span>★ ${service.rating}</span>
-                            <small>(${service.reviewsCount} отзывов)</small>
+                            <small>(${service.reviewsCount} <span data-i18n="service.reviews">отзывов</span>)</small>
                         </div>
                     </div>
 
                     <div class="service-actions">
                         ${!isLoggedIn ? `
-                            <button class="order-btn disabled" onclick="showLoginAlert()">
+                            <button class="order-btn disabled" onclick="showLoginAlert()" data-i18n="service.action.login">
                                 Войдите для заказа
                             </button>
                         ` : hasActiveOrder ? `
-                            <button class="order-btn active" disabled>
+                            <button class="order-btn active" disabled data-i18n="service.action.active">
                                 ✅ Услуга активна
                             </button>
                         ` : hasCompletedOrder ? `
-                            <button class="order-btn completed" disabled>
+                            <button class="order-btn completed" disabled data-i18n="service.action.completed">
                                 ✓ Завершено
                             </button>
                             ${canReview ? `
-                                <button class="review-btn" onclick="showReviewModal('${service.id}')">
+                                <button class="review-btn" onclick="showReviewModal('${service.id}')" data-i18n="service.action.review">
                                     📝 Оставить отзыв
                                 </button>
                             ` : ''}
                         ` : `
-                            <button class="order-btn" onclick="showOrderModal('${service.id}')">
+                            <button class="order-btn" onclick="showOrderModal('${service.id}')" data-i18n="service.action.order">
                                 🛒 Оформить
                             </button>
                         `}
@@ -159,6 +283,42 @@ class ServicesManager {
                 </div>
             `;
         }).join('');
+
+        this.applytranslatioToServices();
+    }
+
+    applytranslatioToServices() {
+        const t = translatio[this.currentLang];
+        const elements = document.querySelectorAll('[data-i18n]');
+        
+        elements.forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (t[key]) {
+                element.textContent = t[key];
+            }
+        });
+    }
+
+    setupLanguageObserver() {
+        document.addEventListener('languageChanged', () => {
+            this.currentLang = localStorage.getItem('language') || 'ru';
+            this.applytranslatioToServices();
+            this.updateFilterLabels();
+        });
+    }
+
+    updateFilterLabels() {
+        const t = translatio[this.currentLang];
+        
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput && t['services.search.placeholder']) {
+            searchInput.placeholder = t['services.search.placeholder'];
+        }
+        
+        const searchButton = document.querySelector('.search-box button');
+        if (searchButton && t['services.search.button']) {
+            searchButton.textContent = t['services.search.button'];
+        }
     }
 
     async createOrder(serviceId) {
@@ -195,7 +355,8 @@ class ServicesManager {
 }
 
 function showLoginAlert() {
-    alert('Пожалуйста, войдите в систему для оформления заказа');
+    const t = translatio[servicesManager.currentLang];
+    alert(t['message.login_required']);
     window.location.href = 'auth.html';
 }
 
@@ -203,11 +364,13 @@ function showOrderModal(serviceId) {
     const service = servicesManager.services.find(s => s.id === serviceId);
     if (!service) return;
 
+    const t = translatio[servicesManager.currentLang];
+
     const modalHTML = `
         <div class="modal-overlay" id="order-modal">
             <div class="modal order-modal">
                 <div class="modal-header">
-                    <h2>Оформление услуги</h2>
+                    <h2 data-i18n="order.modal.title">Оформление услуги</h2>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -215,25 +378,25 @@ function showOrderModal(serviceId) {
                         <h3>${service.title}</h3>
                         <p>${service.shortDescription}</p>
                         <div class="order-price">
-                            <strong>Стоимость:</strong> ${service.price}
+                            <strong data-i18n="order.modal.price">Стоимость:</strong> ${service.price}
                             <br>
-                            <strong>Комиссия:</strong> ${service.transactionFee}
+                            <strong data-i18n="order.modal.fee">Комиссия:</strong> ${service.transactionFee}
                         </div>
                     </div>
                     
                     <div class="order-terms">
-                        <h4>Условия использования:</h4>
+                        <h4 data-i18n="order.modal.terms">Условия использования:</h4>
                         <ul>
-                            <li>✅ Без скрытых платежей</li>
-                            <li>✅ Можно отменить в любой момент</li>
-                            <li>✅ Техническая поддержка 24/7</li>
-                            <li>✅ Гарантия возврата в течение 14 дней</li>
+                            <li data-i18n="order.modal.term1">✅ Без скрытых платежей</li>
+                            <li data-i18n="order.modal.term2">✅ Можно отменить в любой момент</li>
+                            <li data-i18n="order.modal.term3">✅ Техническая поддержка 24/7</li>
+                            <li data-i18n="order.modal.term4">✅ Гарантия возврата в течение 14 дней</li>
                         </ul>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="cancel-btn" onclick="closeModal('order-modal')">Отмена</button>
-                    <button class="confirm-btn" onclick="confirmOrder('${serviceId}')">Подтвердить заказ</button>
+                    <button class="cancel-btn" onclick="closeModal('order-modal')" data-i18n="order.modal.cancel">Отмена</button>
+                    <button class="confirm-btn" onclick="confirmOrder('${serviceId}')" data-i18n="order.modal.confirm">Подтвердить заказ</button>
                 </div>
             </div>
         </div>
@@ -241,28 +404,31 @@ function showOrderModal(serviceId) {
 
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     setupModal('order-modal');
+    applytranslatioToElement(document.getElementById('order-modal'), servicesManager.currentLang);
 }
 
 function showReviewModal(serviceId) {
     const service = servicesManager.services.find(s => s.id === serviceId);
     if (!service) return;
 
+    const t = translatio[servicesManager.currentLang];
+
     const modalHTML = `
         <div class="modal-overlay" id="review-modal">
             <div class="modal review-modal">
                 <div class="modal-header">
-                    <h2>Оставить отзыв</h2>
+                    <h2 data-i18n="review.modal.title">Оставить отзыв</h2>
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="review-service-info">
                         <h3>${service.title}</h3>
-                        <p>Поделитесь вашим опытом использования услуги</p>
+                        <p data-i18n="review.modal.subtitle">Поделитесь вашим опытом использования услуги</p>
                     </div>
                     
                     <form id="review-form">
                         <div class="form-group">
-                            <label>Оценка:</label>
+                            <label data-i18n="review.modal.rating">Оценка:</label>
                             <div class="rating-stars">
                                 ${[1,2,3,4,5].map(star => `
                                     <span class="star" data-value="${star}">☆</span>
@@ -272,19 +438,23 @@ function showReviewModal(serviceId) {
                         </div>
                         
                         <div class="form-group">
-                            <label for="review-title">Заголовок отзыва:</label>
-                            <input type="text" id="review-title" required placeholder="Краткое описание">
+                            <label for="review-title" data-i18n="review.modal.title_input">Заголовок отзыва:</label>
+                            <input type="text" id="review-title" required 
+                                   data-i18n-placeholder="review.modal.title_placeholder"
+                                   placeholder="Краткое описание">
                         </div>
                         
                         <div class="form-group">
-                            <label for="review-text">Текст отзыва:</label>
-                            <textarea id="review-text" required rows="4" placeholder="Расскажите подробнее о вашем опыте..."></textarea>
+                            <label for="review-text" data-i18n="review.modal.text">Текст отзыва:</label>
+                            <textarea id="review-text" required rows="4" 
+                                      data-i18n-placeholder="review.modal.text_placeholder"
+                                      placeholder="Расскажите подробнее о вашем опыте..."></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="cancel-btn" onclick="closeModal('review-modal')">Отмена</button>
-                    <button class="confirm-btn" onclick="submitReview('${serviceId}')">Опубликовать отзыв</button>
+                    <button class="cancel-btn" onclick="closeModal('review-modal')" data-i18n="order.modal.cancel">Отмена</button>
+                    <button class="confirm-btn" onclick="submitReview('${serviceId}')" data-i18n="review.modal.publish">Опубликовать отзыв</button>
                 </div>
             </div>
         </div>
@@ -293,6 +463,7 @@ function showReviewModal(serviceId) {
     document.body.insertAdjacentHTML('beforeend', modalHTML);
     setupModal('review-modal');
     setupStarRating();
+    applytranslatioToElement(document.getElementById('review-modal'), servicesManager.currentLang);
 }
 
 function setupStarRating() {
@@ -319,28 +490,32 @@ function setupStarRating() {
 }
 
 async function confirmOrder(serviceId) {
+    const t = translatio[servicesManager.currentLang];
+    
     try {
         const order = await servicesManager.createOrder(serviceId);
         if (order) {
             closeModal('order-modal');
-            alert('Услуга успешно оформлена!');
-            servicesManager.renderServices(); 
+            alert(t['message.order_success']);
+            servicesManager.renderServices();
         } else {
-            alert('Ошибка при оформлении заказа');
+            alert(t['message.order_error']);
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Ошибка при оформлении заказа');
+        alert(t['message.order_error']);
     }
 }
 
 async function submitReview(serviceId) {
+    const t = translatio[servicesManager.currentLang];
+    
     const title = document.getElementById('review-title').value;
     const text = document.getElementById('review-text').value;
     const rating = document.getElementById('review-rating').value;
     
     if (!title || !text) {
-        alert('Пожалуйста, заполните все поля');
+        alert(t['message.fill_all_fields']);
         return;
     }
 
@@ -388,12 +563,12 @@ async function submitReview(serviceId) {
             }
 
             closeModal('review-modal');
-            alert('Спасибо за ваш отзыв!');
-            servicesManager.renderServices(); 
+            alert(t['message.review_success']);
+            servicesManager.renderServices();
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Ошибка при отправке отзыва');
+        alert(t['message.review_error']);
     }
 }
 
@@ -417,11 +592,10 @@ function showLoading(show) {
 }
 
 function showError(message) {
+    const t = translatio[servicesManager.currentLang];
     const container = document.getElementById('servicesContainer');
-    container.innerHTML = `<div class="error">${message}</div>`;
+    container.innerHTML = `<div class="error">${t[message] || message}</div>`;
 }
-
-const servicesManager = new ServicesManager();
 
 function filterServices() {
     servicesManager.filterServices();
@@ -435,8 +609,31 @@ function searchServices() {
     servicesManager.searchServices();
 }
 
+function applytranslatioToElement(element, lang) {
+    const elements = element.querySelectorAll('[data-i18n]');
+    const t = translatio[lang];
+    
+    elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            el.textContent = t[key];
+        }
+    });
+    
+    const inputs = element.querySelectorAll('[data-i18n-placeholder]');
+    inputs.forEach(input => {
+        const key = input.getAttribute('data-i18n-placeholder');
+        if (t[key]) {
+            input.placeholder = t[key];
+        }
+    });
+}
+
+const servicesManager = new ServicesManager();
+
 document.addEventListener('DOMContentLoaded', () => {
     servicesManager.loadServices();
+    servicesManager.setupLanguageObserver();
 
     document.getElementById('searchInput').addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {

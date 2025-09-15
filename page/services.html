@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наши услуги - Payment Gateway</title>
-    <link rel="stylesheet" href="../style/global.css">
-    <link rel="stylesheet" href="../style/user-menu.css">
-    <link rel="stylesheet" href="../style/header.css">
     <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/global.css">
+    <link rel="stylesheet" href="../style/header.css">
+    <link rel="stylesheet" href="../style/theme.css">
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/user-menu.css">
+    <link rel="stylesheet" href="../style/accessibility.css">
     <link rel="stylesheet" href="../style/services.css">
 </head>
 <body>
@@ -24,11 +27,11 @@
         </div>
         <div class="header-bottom">
             <nav>
-                <a href="#">Home</a>
+                <a href="home.html">Home</a>
                 <a href="services.html">Products</a>
-                <a href="#">Pages</a>
                 <a href="reviews.html">Reviews</a>
                 <a href="contact.html">Contact us</a>
+                <a href="pricing.html">Pricing</a>
             </nav>
             <div class="header-bottom-right">
                 <button class="header-bottom-right-language"><img src="../img/language.png" alt="language"> English</button>
@@ -37,47 +40,98 @@
         </div>
     </header>
 
-    <main class="services-main">
-        <section class="services-hero">
-            <h1>Наши услуги</h1>
-            <p>Выберите оптимальное решение для вашего бизнеса</p>
-        </section>
+<main class="services-main">
+    <section class="services-hero">
+        <h1 data-i18n="services.hero.title">Наши услуги</h1>
+        <p data-i18n="services.hero.subtitle">Выберите оптимальное решение для вашего бизнеса</p>
+    </section>
 
-        <section class="filters-section">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Поиск услуг...">
-                <button onclick="searchServices()">Найти</button>
-            </div>
+    <section class="filters-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Поиск услуг..." data-i18n-placeholder="services.search.placeholder">
+            <button onclick="searchServices()" data-i18n="services.search.button">Найти</button>
+        </div>
+        
+        <div class="filter-controls">
+            <select id="categoryFilter" onchange="filterServices()">
+                <option value="all" data-i18n="services.filter.category">Все категории</option>
+                <option value="Invoices" data-i18n="services.category.invoices">Invoices</option>
+                <option value="Quick Checkout" data-i18n="services.category.quick">Quick Checkout</option>
+                <option value="API" data-i18n="services.category.api">API</option>
+            </select>
             
-            <div class="filter-controls">
-                <select id="categoryFilter" onchange="filterServices()">
-                    <option value="all">Все категории</option>
-                    <option value="Invoices">Invoices</option>
-                    <option value="Quick Checkout">Quick Checkout</option>
-                    <option value="API">API</option>
-                </select>
-                
-                <select id="sortSelect" onchange="sortServices()">
-                    <option value="name">По названию</option>
-                    <option value="price">По цене</option>
-                    <option value="rating">По рейтингу</option>
-                    <option value="popularity">По популярности</option>
-                </select>
-            </div>
-        </section>
+            <select id="sortSelect" onchange="sortServices()">
+                <option value="name" data-i18n="services.filter.sort.name">По названию</option>
+                <option value="price" data-i18n="services.filter.sort.price">По цене</option>
+                <option value="rating" data-i18n="services.filter.sort.rating">По рейтингу</option>
+                <option value="popularity" data-i18n="services.filter.sort.popularity">По популярности</option>
+            </select>
+        </div>
+    </section>
 
-        <section class="services-list">
-            <div id="loading" class="loading">Загрузка услуг...</div>
-            <div id="servicesContainer" class="services-container"></div>
-            <div id="noResults" class="no-results" style="display: none;">
-                <p>Услуги не найдены. Попробуйте изменить параметры поиска.</p>
-            </div>
-        </section>
-    </main>
+    <section class="services-list">
+        <div id="loading" class="loading" data-i18n="services.loading">Загрузка услуг...</div>
+        <div id="servicesContainer" class="services-container"></div>
+        <div id="noResults" class="no-results" style="display: none;">
+            <p data-i18n="services.empty">Услуги не найдены. Попробуйте изменить параметры поиска.</p>
+        </div>
+    </section>
+</main>
 
     <footer>
+        <div class="footer-top">
+            <div class="footer-top-col">
+                <h1>Logo</h1>
+                <p>support@9.com</p>
+                <p>+888-888-88</p>
+            </div>
+            <div class="footer-top-col">
+                <b>Links</b>
+                <ul>
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>Pricing</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Features</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <b>Help & Support</b>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Support</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <h2>Our Address</h2>
+                <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+                <div class="footer-top-col-img">
+                    <img src="../img/facebook.png" alt="facebook">
+                    <img src="../img/linkedin.png" alt="linkedin"> 
+                    <img src="../img/twitter.png" alt="twitter">
+                    <img src="../img/google-plus.png" alt="google-plus">
+                </div>
+                <div class="footer-top-col-inp">
+                    <p>SIGN UP FOR NEWSLETTER</p>
+                    <div class="footer-top-col-input-button">
+                        <input placeholder="Email address"></input>
+                        <button class="accepting-button">Subscirbe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Copyright 2021 Your company name</p>
+        </div>
     </footer>
 
+    <script src="../js/i18n.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/user-menu.js"></script>
     <script src="../js/services.js"></script>
 </body>
 </html>

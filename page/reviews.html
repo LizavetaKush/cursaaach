@@ -4,77 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Отзывы - Payment Gateway</title>
+    <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/theme.css">
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/user-menu.css">
+    <link rel="stylesheet" href="../style/accessibility.css">
     <link rel="stylesheet" href="../style/reviews.css">
 </head>
 <body>
     <header>
+        <div class="header-top">
+            <a href="#">Logo</a>
+            <div class="header-top-right">
+                <p>email@mail.com</p>
+                <div class="header-top-right-phone">
+                    <img src="../img/phone.png" alt="phone">
+                    <p>(000) 888-88</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="services.html">Products</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact us</a>
+                <a href="pricing.html">Pricing</a>
+            </nav>
+            <div class="header-bottom-right">
+                <button class="header-bottom-right-language"><img src="../img/language.png" alt="language"> English</button>
+                <a href="auth.html" class="header-bottom-right-auth">Sign Up</a>
+            </div>
+        </div>
     </header>
 
-    <main class="reviews-main">
-        <section class="reviews-hero">
-            <h1>Отзывы наших клиентов</h1>
-            <p>Узнайте, что говорят о нас те, кто уже использует наши услуги</p>
-        </section>
+ <main class="reviews-main">
+    <section class="reviews-hero">
+        <h1 data-i18n="reviews.hero.title">Отзывы наших клиентов</h1>
+        <p data-i18n="reviews.hero.subtitle">Узнайте, что говорят о нас те, кто уже использует наши услуги</p>
+    </section>
 
-        <section class="reviews-filters">
-            <div class="reviews-search">
-                <input type="text" id="reviewsSearch" placeholder="Поиск по отзывам...">
-                <button onclick="searchReviews()">Найти</button>
-            </div>
+    <section class="reviews-filters">
+        <div class="reviews-search">
+            <input type="text" id="reviewsSearch" placeholder="Поиск по отзывам..." data-i18n-placeholder="reviews.search.placeholder">
+            <button onclick="searchReviews()" data-i18n="reviews.search.button">Найти</button>
+        </div>
+        
+        <div class="reviews-controls">
+            <select id="serviceFilter" onchange="filterReviews()">
+                <option value="all" data-i18n="reviews.filter.service">Все услуги</option>
+                <option value="Invoices" data-i18n="reviews.service.invoices">Invoices</option>
+                <option value="Quick Checkout" data-i18n="reviews.service.quick">Quick Checkout</option>
+                <option value="API" data-i18n="reviews.service.api">API</option>
+            </select>
             
-            <div class="reviews-controls">
-                <select id="serviceFilter" onchange="filterReviews()">
-                    <option value="all">Все услуги</option>
-                    <option value="Invoices">Invoices</option>
-                    <option value="Quick Checkout">Quick Checkout</option>
-                    <option value="API">API</option>
-                </select>
-                
-                <select id="ratingFilter" onchange="filterReviews()">
-                    <option value="all">Все оценки</option>
-                    <option value="5">5 звезд</option>
-                    <option value="4">4+ звезды</option>
-                    <option value="3">3+ звезды</option>
-                </select>
-                
-                <select id="sortReviews" onchange="sortReviews()">
-                    <option value="date">По дате (новые)</option>
-                    <option value="rating">По оценке</option>
-                    <option value="popular">По полезности</option>
-                </select>
-            </div>
-        </section>
+            <select id="ratingFilter" onchange="filterReviews()">
+                <option value="all" data-i18n="reviews.filter.rating">Все оценки</option>
+                <option value="5" data-i18n="reviews.rating.5">5 звезд</option>
+                <option value="4" data-i18n="reviews.rating.4">4+ звезды</option>
+                <option value="3" data-i18n="reviews.rating.3">3+ звезды</option>
+            </select>
+            
+            <select id="sortReviews" onchange="sortReviews()">
+                <option value="date" data-i18n="reviews.filter.sort.date">По дате (новые)</option>
+                <option value="rating" data-i18n="reviews.filter.sort.rating">По оценке</option>
+                <option value="popular" data-i18n="reviews.filter.sort.popular">По полезности</option>
+            </select>
+        </div>
+    </section>
 
-        <section class="reviews-stats">
-            <div class="stats-card">
-                <h3>4.8/5</h3>
-                <p>Средняя оценка</p>
-            </div>
-            <div class="stats-card">
-                <h3>1,250+</h3>
-                <p>Всего отзывов</p>
-            </div>
-            <div class="stats-card">
-                <h3>98%</h3>
-                <p>Довольных клиентов</p>
-            </div>
-        </section>
+    <section class="reviews-stats">
+        <div class="stats-card">
+            <h3>4.8/5</h3>
+            <p data-i18n="reviews.stats.average">Средняя оценка</p>
+        </div>
+        <div class="stats-card">
+            <h3>1,250+</h3>
+            <p data-i18n="reviews.stats.total">Всего отзывов</p>
+        </div>
+        <div class="stats-card">
+            <h3>98%</h3>
+            <p data-i18n="reviews.stats.satisfied">Довольных клиентов</p>
+        </div>
+    </section>
 
-        <section class="reviews-list">
-            <div id="reviewsLoading" class="loading">Загрузка отзывов...</div>
-            <div id="reviewsContainer" class="reviews-container"></div>
-            <div id="noReviews" class="no-results" style="display: none;">
-                <p>Отзывы не найдены. Попробуйте изменить параметры поиска.</p>
-            </div>
-        </section>
-    </main>
+    <section class="reviews-list">
+        <div id="reviewsLoading" class="loading" data-i18n="reviews.loading">Загрузка отзывов...</div>
+        <div id="reviewsContainer" class="reviews-container"></div>
+        <div id="noReviews" class="no-results" style="display: none;">
+            <p data-i18n="reviews.empty">Отзывы не найдены. Попробуйте изменить параметры поиска.</p>
+        </div>
+    </section>
+</main>
 
     <footer>
+        <div class="footer-top">
+            <div class="footer-top-col">
+                <h1>Logo</h1>
+                <p>support@9.com</p>
+                <p>+888-888-88</p>
+            </div>
+            <div class="footer-top-col">
+                <b>Links</b>
+                <ul>
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>Pricing</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Features</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <b>Help & Support</b>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Support</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <h2>Our Address</h2>
+                <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+                <div class="footer-top-col-img">
+                    <img src="../img/facebook.png" alt="facebook">
+                    <img src="../img/linkedin.png" alt="linkedin"> 
+                    <img src="../img/twitter.png" alt="twitter">
+                    <img src="../img/google-plus.png" alt="google-plus">
+                </div>
+                <div class="footer-top-col-inp">
+                    <p>SIGN UP FOR NEWSLETTER</p>
+                    <div class="footer-top-col-input-button">
+                        <input placeholder="Email address"></input>
+                        <button class="accepting-button">Subscirbe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Copyright 2021 Your company name</p>
+        </div>
     </footer>
 
     <script src="../js/reviews.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/user-menu.js"></script>
 </body>
 </html>

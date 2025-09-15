@@ -4,126 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админ панель - Payment Gateway</title>
+    <link rel="stylesheet" href="../style/footer.css">
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/header.css">
-    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="../style/theme.css">
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/user-menu.css">
+    <link rel="stylesheet" href="../style/accessibility.css">
     <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
     <header>
+        <div class="header-top">
+            <a href="#">Logo</a>
+            <div class="header-top-right">
+                <p>email@mail.com</p>
+                <div class="header-top-right-phone">
+                    <img src="../img/phone.png" alt="phone">
+                    <p>(000) 888-88</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="services.html">Products</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact us</a>
+                <a href="pricing.html">Pricing</a>
+            </nav>
+            <div class="header-bottom-right">
+                <button class="header-bottom-right-language"><img src="../img/language.png" alt="language"> English</button>
+                <a href="auth.html" class="header-bottom-right-auth">Sign Up</a>
+            </div>
+        </div>
     </header>
 
-    <main class="admin-main">
-        <section class="admin-hero">
-            <h1>Административная панель</h1>
-            <p>Управление пользователями, услугами и отзывами</p>
-        </section>
+<main class="admin-main">
+    <section class="admin-hero">
+        <h1 data-i18n="admin.hero.title">Административная панель</h1>
+        <p data-i18n="admin.hero.subtitle">Управление пользователями, услугами и отзывами</p>
+    </section>
 
-        <div class="admin-tabs">
-            <button class="tab-btn active" data-tab="users">Пользователи</button>
-            <button class="tab-btn" data-tab="services">Услуги</button>
-            <button class="tab-btn" data-tab="reviews">Отзывы</button>
+    <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="users" data-i18n="admin.tab.users">Пользователи</button>
+        <button class="tab-btn" data-tab="services" data-i18n="admin.tab.services">Услуги</button>
+        <button class="tab-btn" data-tab="reviews" data-i18n="admin.tab.reviews">Отзывы</button>
+    </div>
+
+    <section class="admin-content">
+        <div id="users-tab" class="tab-content active">
+            <div class="admin-header">
+                <h2 data-i18n="admin.users.title">Управление пользователями</h2>
+                <div class="search-box">
+                    <input type="text" id="usersSearch" data-i18n-placeholder="admin.users.search.placeholder" placeholder="Поиск пользователей...">
+                    <button onclick="searchUsers()" data-i18n="admin.users.search.button">Найти</button>
+                </div>
+            </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="admin.users.table.id">ID</th>
+                            <th data-i18n="admin.users.table.name">Имя</th>
+                            <th data-i18n="admin.users.table.email">Email</th>
+                            <th data-i18n="admin.users.table.phone">Телефон</th>
+                            <th data-i18n="admin.users.table.role">Роль</th>
+                            <th data-i18n="admin.users.table.registration">Дата регистрации</th>
+                            <th data-i18n="admin.users.table.actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td colspan="7" class="loading" data-i18n="admin.users.loading">Загрузка пользователей...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <section class="admin-content">
-            <div id="users-tab" class="tab-content active">
-                <div class="admin-header">
-                    <h2>Управление пользователями</h2>
+        <div id="services-tab" class="tab-content">
+            <div class="admin-header">
+                <h2 data-i18n="admin.services.title">Управление услугами</h2>
+                <div>
+                    <button class="add-btn" onclick="showAddServiceModal()" data-i18n="admin.services.add">+ Добавить услугу</button>
                     <div class="search-box">
-                        <input type="text" id="usersSearch" placeholder="Поиск пользователей...">
-                        <button onclick="searchUsers()">Найти</button>
+                        <input type="text" id="servicesSearch" data-i18n-placeholder="admin.services.search.placeholder" placeholder="Поиск услуг...">
+                        <button onclick="searchServices()" data-i18n="admin.services.search.button">Найти</button>
                     </div>
                 </div>
-                <div class="admin-table-container">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Имя</th>
-                                <th>Email</th>
-                                <th>Телефон</th>
-                                <th>Роль</th>
-                                <th>Дата регистрации</th>
-                                <th>Действия</th>
-                            </tr>
-                        </thead>
-                        <tbody id="usersTableBody">
-                            <tr>
-                                <td colspan="7" class="loading">Загрузка пользователей...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="admin.services.table.id">ID</th>
+                            <th data-i18n="admin.services.table.name">Название</th>
+                            <th data-i18n="admin.services.table.category">Категория</th>
+                            <th data-i18n="admin.services.table.price">Цена</th>
+                            <th data-i18n="admin.services.table.rating">Рейтинг</th>
+                            <th data-i18n="admin.services.table.popular">Популярная</th>
+                            <th data-i18n="admin.services.table.actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="servicesTableBody">
+                        <tr>
+                            <td colspan="7" class="loading" data-i18n="admin.services.loading">Загрузка услуг...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-            <div id="services-tab" class="tab-content">
-                <div class="admin-header">
-                    <h2>Управление услугами</h2>
-                    <div>
-                        <button class="add-btn" onclick="showAddServiceModal()">+ Добавить услугу</button>
-                        <div class="search-box">
-                            <input type="text" id="servicesSearch" placeholder="Поиск услуг...">
-                            <button onclick="searchServices()">Найти</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="admin-table-container">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Название</th>
-                                <th>Категория</th>
-                                <th>Цена</th>
-                                <th>Рейтинг</th>
-                                <th>Популярная</th>
-                                <th>Действия</th>
-                            </tr>
-                        </thead>
-                        <tbody id="servicesTableBody">
-                            <tr>
-                                <td colspan="7" class="loading">Загрузка услуг...</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div id="reviews-tab" class="tab-content">
+            <div class="admin-header">
+                <h2 data-i18n="admin.reviews.title">Управление отзывами</h2>
+                <div class="search-box">
+                    <input type="text" id="reviewsSearch" data-i18n-placeholder="admin.reviews.search.placeholder" placeholder="Поиск отзывов...">
+                    <button onclick="searchAdminReviews()" data-i18n="admin.reviews.search.button">Найти</button>
                 </div>
             </div>
-
-            <div id="reviews-tab" class="tab-content">
-                <div class="admin-header">
-                    <h2>Управление отзывами</h2>
-                    <div class="search-box">
-                        <input type="text" id="reviewsSearch" placeholder="Поиск отзывов...">
-                        <button onclick="searchAdminReviews()">Найти</button>
-                    </div>
-                </div>
-                <div class="admin-table-container">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Пользователь</th>
-                                <th>Услуга</th>
-                                <th>Оценка</th>
-                                <th>Заголовок</th>
-                                <th>Дата</th>
-                                <th>Действия</th>
-                            </tr>
-                        </thead>
-                        <tbody id="reviewsTableBody">
-                            <tr>
-                                <td colspan="7" class="loading">Загрузка отзывов...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="admin.reviews.table.id">ID</th>
+                            <th data-i18n="admin.reviews.table.user">Пользователь</th>
+                            <th data-i18n="admin.reviews.table.service">Услуга</th>
+                            <th data-i18n="admin.reviews.table.rating">Оценка</th>
+                            <th data-i18n="admin.reviews.table.title">Заголовок</th>
+                            <th data-i18n="admin.reviews.table.date">Дата</th>
+                            <th data-i18n="admin.reviews.table.actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reviewsTableBody">
+                        <tr>
+                            <td colspan="7" class="loading" data-i18n="admin.reviews.loading">Загрузка отзывов...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
     <footer>
+        <div class="footer-top">
+            <div class="footer-top-col">
+                <h1>Logo</h1>
+                <p>support@9.com</p>
+                <p>+888-888-88</p>
+            </div>
+            <div class="footer-top-col">
+                <b>Links</b>
+                <ul>
+                    <li>Home</li>
+                    <li>Product</li>
+                    <li>Pricing</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Features</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <b>Help & Support</b>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                    <li>Support</li>
+                </ul>
+            </div>
+            <div class="footer-top-col">
+                <h2>Our Address</h2>
+                <p>4517 Washington Ave. Manchester, Kentucky 39495</p>
+                <div class="footer-top-col-img">
+                    <img src="../img/facebook.png" alt="facebook">
+                    <img src="../img/linkedin.png" alt="linkedin"> 
+                    <img src="../img/twitter.png" alt="twitter">
+                    <img src="../img/google-plus.png" alt="google-plus">
+                </div>
+                <div class="footer-top-col-inp">
+                    <p>SIGN UP FOR NEWSLETTER</p>
+                    <div class="footer-top-col-input-button">
+                        <input placeholder="Email address"></input>
+                        <button class="accepting-button">Subscirbe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Copyright 2021 Your company name</p>
+        </div>
     </footer>
     
     <script src="../js/admin.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/mobile-menu.js"></script>
+    <script src="../js/user-menu.js"></script>
 </body>
 </html>
