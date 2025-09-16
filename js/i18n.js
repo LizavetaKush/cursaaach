@@ -1210,7 +1210,16 @@ document.addEventListener('DOMContentLoaded', function() {
     '[data-i18n="review.modal.rating"]': 'review.modal.rating',
     '[data-i18n="review.modal.title_input"]': 'review.modal.title_input',
     '[data-i18n="review.modal.text"]': 'review.modal.text',
-    '[data-i18n="review.modal.publish"]': 'review.modal.publish'
+    '[data-i18n="review.modal.publish"]': 'review.modal.publish',
+
+    '.feature-item:nth-child(1) h4': 'pricing.feature.security',
+    '.feature-item:nth-child(1) p': 'pricing.feature.security.desc',
+    '.feature-item:nth-child(2) h4': 'pricing.feature.payouts',
+    '.feature-item:nth-child(2) p': 'pricing.feature.payouts.desc',
+    '.feature-item:nth-child(3) h4': 'pricing.feature.coverage',
+    '.feature-item:nth-child(3) p': 'pricing.feature.coverage.desc',
+    '.feature-item:nth-child(4) h4': 'pricing.feature.reporting',
+    '.feature-item:nth-child(4) p': 'pricing.feature.reporting.desc',
     };
 
     let currentLang = localStorage.getItem('language') || 'en';

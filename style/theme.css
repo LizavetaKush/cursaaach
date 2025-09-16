@@ -117,8 +117,11 @@
 .dark .review-card,
 .dark .switcher-container,
 .dark .admin-table,
-.dark .modal  {
+.dark .modal,
+.dark .auth-main,
+.dark .auth-container  {
     background-color: #383838;
+    background: #202020;
     color: #e0e0e0;
 }
 
@@ -149,7 +152,8 @@
 .dark .pricing-hero h1,
 .dark .pricing-hero p,
 .dark .pricing-features h2,
-.dakr .pricing-faq h2 {
+.dakr .pricing-faq h2,
+.dark .checkbox-container span {
     color: #a0a0a0;
 }
 
