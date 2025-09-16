@@ -127,9 +127,19 @@ function createUserDropdown(user, container) {
 
 function handleLogout() {
     localStorage.removeItem('currentUser');
+
+    resetAccessibilitySettingsStorage();
+
     updateHeaderAuthState();
     window.location.reload();
 }
+
+function resetAccessibilitySettingsStorage() {
+    localStorage.removeItem('accessibilitySettings');
+    localStorage.setItem('theme', 'light');
+    localStorage.setItem('language', 'en');
+}
+
 
 function showAccessibilitySettings() {
     const currentLang = localStorage.getItem('language') || 'ru';

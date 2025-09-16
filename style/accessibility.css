@@ -181,10 +181,25 @@ body.accessibility-active.color-black-white .carousel-btn,
 body.accessibility-active.color-black-white .faq-item,
 body.accessibility-active.color-black-white .wetalk-about-block,
 body.accessibility-active.color-black-white .contact-info-card,
-body.accessibility-active.color-black-white footer {
+body.accessibility-active.color-black-white footer,
+body.accessibility-active.color-black-white .section-start,
+body.accessibility-active.color-black-white .accepting,
+body.accessibility-active.color-black-white .accepting-block,
+body.accessibility-active.color-black-white .accepting-block button,
+body.accessibility-active.color-black-white .slider,
+body.accessibility-active.color-black-white .wetalk,
+body.accessibility-active.color-black-white .service-card ,
+body.accessibility-active.color-black-white .review-card,
+body.accessibility-active.color-black-white .contact-hero,
+body.accessibility-active.color-black-white .faq-preview,
+body.accessibility-active.color-black-white .admin-table,
+body.accessibility-active.color-black-white .auth-main,
+body.accessibility-active.color-black-white .auth-container,
+body.accessibility-active.color-black-white .modal-body,
+body.accessibility-active.color-black-white header {
     background-color: #000000;
+    background: #000000;
     color: #ffffff;
-    border-color: #333333;
 }
 
 body.accessibility-active.color-black-white .header-top-right p,
@@ -194,7 +209,18 @@ body.accessibility-active.color-black-white .form-group label,
 body.accessibility-active.color-black-white .footer-top-col p,
 body.accessibility-active.color-black-white .footer-top-col li,
 body.accessibility-active.color-black-white .faq-item p,
-body.accessibility-active.color-black-white .contact-info-card p {
+body.accessibility-active.color-black-white .contact-info-card p,
+body.accessibility-active.color-black-white .nav-menu a,
+body.accessibility-active.color-black-white .user-menu-btn span,
+body.accessibility-active.color-black-white .header-bottom-right-language,
+body.accessibility-active.color-black-white .logo,
+body.accessibility-active.color-black-white .review-content h5,
+body.accessibility-active.color-black-white .review-text,
+body.accessibility-active.color-black-white .service-description,
+body.accessibility-active.color-black-white .pricing-hero h1,
+body.accessibility-active.color-black-white .pricing-hero p,
+body.accessibility-active.color-black-white .accessibility-section h3,
+body.accessibility-active.color-black-white .pricing-features h2 {
     color: #cccccc;
 }
 
@@ -218,7 +244,22 @@ body.accessibility-active.color-black-green .carousel-btn,
 body.accessibility-active.color-black-green .faq-item,
 body.accessibility-active.color-black-green .wetalk-about-block,
 body.accessibility-active.color-black-green .contact-info-card,
-body.accessibility-active.color-black-green footer {
+body.accessibility-active.color-black-green footer,
+body.accessibility-active.color-black-green .section-start,
+body.accessibility-active.color-black-green .accepting,
+body.accessibility-active.color-black-green .accepting-block,
+body.accessibility-active.color-black-green .accepting-block button,
+body.accessibility-active.color-black-green .slider,
+body.accessibility-active.color-black-green .wetalk,
+body.accessibility-active.color-black-green .service-card ,
+body.accessibility-active.color-black-green .review-card,
+body.accessibility-active.color-black-green .contact-hero,
+body.accessibility-active.color-black-green .faq-preview,
+body.accessibility-active.color-black-green .admin-table,
+body.accessibility-active.color-black-green .auth-main,
+body.accessibility-active.color-black-green .auth-container,
+body.accessibility-active.color-black-green .modal-body,
+body.accessibility-active.color-black-green header {
     background-color: #000000;
     color: #00ff00;
     border-color: #333333;
@@ -231,7 +272,18 @@ body.accessibility-active.color-black-green .form-group label,
 body.accessibility-active.color-black-green .footer-top-col p,
 body.accessibility-active.color-black-green .footer-top-col li,
 body.accessibility-active.color-black-green .faq-item p,
-body.accessibility-active.color-black-green .contact-info-card p {
+body.accessibility-active.color-black-green .contact-info-card p,
+body.accessibility-active.color-black-green .nav-menu a,
+body.accessibility-active.color-black-green .user-menu-btn span,
+body.accessibility-active.color-black-green .header-bottom-right-language,
+body.accessibility-active.color-black-green .logo,
+body.accessibility-active.color-black-green .review-content h5,
+body.accessibility-active.color-black-green .review-text,
+body.accessibility-active.color-black-green .service-description,
+body.accessibility-active.color-black-green .pricing-hero h1,
+body.accessibility-active.color-black-green .pricing-hero p,
+body.accessibility-active.color-black-green .accessibility-section h3,
+body.accessibility-active.color-black-green .pricing-features h2 {
     color: #00cc00;
 }
 
@@ -255,7 +307,22 @@ body.accessibility-active.color-beige-brown .carousel-btn,
 body.accessibility-active.color-beige-brown .faq-item,
 body.accessibility-active.color-beige-brown .wetalk-about-block,
 body.accessibility-active.color-beige-brown .contact-info-card,
-body.accessibility-active.color-beige-brown footer {
+body.accessibility-active.color-beige-brown footer,
+body.accessibility-active.color-beige-brown .section-start,
+body.accessibility-active.color-beige-brown .accepting,
+body.accessibility-active.color-beige-brown .accepting-block,
+body.accessibility-active.color-beige-brown .accepting-block button,
+body.accessibility-active.color-beige-brown .slider,
+body.accessibility-active.color-beige-brown .wetalk,
+body.accessibility-active.color-beige-brown .service-card ,
+body.accessibility-active.color-beige-brown .review-card,
+body.accessibility-active.color-beige-brown .contact-hero,
+body.accessibility-active.color-beige-brown .faq-preview,
+body.accessibility-active.color-beige-brown .admin-table,
+body.accessibility-active.color-beige-brown .auth-main,
+body.accessibility-active.color-beige-brown .auth-container,
+body.accessibility-active.color-beige-brown .modal-body,
+body.accessibility-active.color-beige-brown header {
     background-color: #f5f5dc;
     color: #8b4513;
     border-color: #d2b48c;
@@ -268,7 +335,18 @@ body.accessibility-active.color-beige-brown .form-group label,
 body.accessibility-active.color-beige-brown .footer-top-col p,
 body.accessibility-active.color-beige-brown .footer-top-col li,
 body.accessibility-active.color-beige-brown .faq-item p,
-body.accessibility-active.color-beige-brown .contact-info-card p {
+body.accessibility-active.color-beige-brown .contact-info-card p,
+body.accessibility-active.color-beige-brown .nav-menu a,
+body.accessibility-active.color-beige-brown .user-menu-btn span,
+body.accessibility-active.color-beige-brown .header-bottom-right-language,
+body.accessibility-active.color-beige-brown .logo,
+body.accessibility-active.color-beige-brown .review-content h5,
+body.accessibility-active.color-beige-brown .review-text,
+body.accessibility-active.color-beige-brown .service-description,
+body.accessibility-active.color-beige-brown .pricing-hero h1,
+body.accessibility-active.color-beige-brown .pricing-hero p,
+body.accessibility-active.color-beige-brown .accessibility-section h3,
+body.accessibility-active.color-beige-brown .pricing-features h2 {
     color: #654321;
 }
 
@@ -292,7 +370,22 @@ body.accessibility-active.color-blue-darkblue .carousel-btn,
 body.accessibility-active.color-blue-darkblue .faq-item,
 body.accessibility-active.color-blue-darkblue .wetalk-about-block,
 body.accessibility-active.color-blue-darkblue .contact-info-card,
-body.accessibility-active.color-blue-darkblue footer {
+body.accessibility-active.color-blue-darkblue footer,
+body.accessibility-active.color-blue-darkblue .section-start,
+body.accessibility-active.color-blue-darkblue .accepting,
+body.accessibility-active.color-blue-darkblue .accepting-block,
+body.accessibility-active.color-blue-darkblue .accepting-block button,
+body.accessibility-active.color-blue-darkblue .slider,
+body.accessibility-active.color-blue-darkblue .wetalk,
+body.accessibility-active.color-blue-darkblue .service-card ,
+body.accessibility-active.color-blue-darkblue .review-card,
+body.accessibility-active.color-blue-darkblue .contact-hero,
+body.accessibility-active.color-blue-darkblue .faq-preview,
+body.accessibility-active.color-blue-darkblue .admin-table,
+body.accessibility-active.color-blue-darkblue .auth-main,
+body.accessibility-active.color-blue-darkblue .auth-container,
+body.accessibility-active.color-blue-darkblue .modal-body,
+body.accessibility-active.color-blue-darkblue header {
     background-color: #e6f3ff;
     color: #00008b;
     border-color: #a0c8ff;
@@ -305,7 +398,18 @@ body.accessibility-active.color-blue-darkblue .form-group label,
 body.accessibility-active.color-blue-darkblue .footer-top-col p,
 body.accessibility-active.color-blue-darkblue .footer-top-col li,
 body.accessibility-active.color-blue-darkblue .faq-item p,
-body.accessibility-active.color-blue-darkblue .contact-info-card p {
+body.accessibility-active.color-blue-darkblue .contact-info-card p,
+body.accessibility-active.color-blue-darkblue .nav-menu a,
+body.accessibility-active.color-blue-darkblue .user-menu-btn span,
+body.accessibility-active.color-blue-darkblue .header-bottom-right-language,
+body.accessibility-active.color-blue-darkblue .logo,
+body.accessibility-active.color-blue-darkblue .review-content h5,
+body.accessibility-active.color-blue-darkblue .review-text,
+body.accessibility-active.color-blue-darkblue .service-description,
+body.accessibility-active.color-blue-darkblue .pricing-hero h1,
+body.accessibility-active.color-blue-darkblue .pricing-hero p,
+body.accessibility-active.color-blue-darkblue .accessibility-section h3,
+body.accessibility-active.color-blue-darkblue .pricing-features h2 {
     color: #0000cd;
 }
 
