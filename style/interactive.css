@@ -80,15 +80,6 @@ button:active, .accepting-button:active {
     cursor: pointer;
 }
 
-.section-start-img img {
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.section-start-img img:hover {
-    transform: rotate(5deg) scale(1.05);
-}
-
 input[type="text"], input[type="email"] {
     transition: all 0.3s ease;
 }

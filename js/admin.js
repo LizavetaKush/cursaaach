@@ -171,7 +171,7 @@ class AdminManager {
         const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
         if (!currentUser || currentUser.role !== 'admin') {
             this.showError(translations[this.currentLang]['message.access.denied']);
-            window.location.href = 'index.html';
+            window.location.href = 'home.html';
             return;
         }
 

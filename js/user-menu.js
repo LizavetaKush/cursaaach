@@ -1,6 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     updateHeaderAuthState();
     applyAccessibilitySettings(); 
+    const buttonsnow = document.querySelectorAll('#startnow');
+    const buttonsfaq = document.querySelectorAll('#gotofaq')
+    buttonsnow.forEach(button => {
+        button.addEventListener('click', function() {
+            window.location.href = 'auth.html';
+        });
+    });
+    buttonsfaq.forEach(button => {
+        button.addEventListener('click', function() {
+            window.location.href = 'contact.html';
+        });
+    });
 });
 
 const translation = {
