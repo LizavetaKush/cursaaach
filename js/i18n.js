@@ -407,14 +407,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'message.fill_all_fields': 'Please fill in all fields',
         'message.load_error': 'Failed to load services',
 
-    'pricing.features.security': 'PCI DSS Security',
-    'pricing.features.security.desc': 'Compliance with international payment security standards',
-    'pricing.features.payouts': 'Instant Payouts',
-    'pricing.features.payouts.desc': 'Funds withdrawal to card or account within 24 hours',
-    'pricing.features.coverage': 'Global Coverage',
-    'pricing.features.coverage.desc': 'Accept payments from anywhere in the world',
-    'pricing.features.reporting': 'Detailed Reporting',
-    'pricing.features.reporting.desc': 'Complete statistics and analytics of all operations',
+    'pricing.feature.security': 'PCI DSS Security',
+    'pricing.feature.security.desc': 'Compliance with international payment security standards',
+    'pricing.feature.payouts': 'Instant Payouts',
+    'pricing.feature.payouts.desc': 'Funds withdrawal to card or account within 24 hours',
+    'pricing.feature.coverage': 'Global Coverage',
+    'pricing.feature.coverage.desc': 'Accept payments from anywhere in the world',
+    'pricing.feature.reporting': 'Detailed Reporting',
+    'pricing.feature.reporting.desc': 'Complete statistics and analytics of all operations'
         },
         'ru': {
             'title': 'Платежный шлюз - Принимайте платежи легко',
@@ -823,14 +823,16 @@ document.addEventListener('DOMContentLoaded', function() {
         'message.fill_all_fields': 'Пожалуйста, заполните все поля',
         'message.load_error': 'Не удалось загрузить услуги',
 
-    'pricing.features.security': 'Безопасность PCI DSS',
-    'pricing.features.security.desc': 'Соответствие международным стандартам безопасности платежей',
-    'pricing.features.payouts': 'Мгновенные выплаты',
-    'pricing.features.payouts.desc': 'Вывод средств на карту или счет в течение 24 часов',
-    'pricing.features.coverage': 'Глобальное покрытие',
-    'pricing.features.coverage.desc': 'Прием платежей из любой точки мира',
-    'pricing.features.reporting': 'Детальная отчетность',
-    'pricing.features.reporting.desc': 'Полная статистика и аналитика всех операций',
+    'pricing.feature.security': 'Безопасность PCI DSS',
+    'pricing.feature.security.desc': 'Соответствие международным стандартам безопасности платежей',
+    'pricing.feature.payouts': 'Мгновенные выплаты',
+    'pricing.feature.payouts.desc': 'Вывод средств на карту или счет в течение 24 часов',
+    'pricing.feature.coverage': 'Глобальное покрытие',
+    'pricing.feature.coverage.desc': 'Прием платежей из любой точки мира',
+    'pricing.feature.reporting': 'Детальная отчетность',
+    'pricing.feature.reporting.desc': 'Полная статистика и аналитика всех операций'
+
+
         }
     };
 
@@ -1212,14 +1214,14 @@ document.addEventListener('DOMContentLoaded', function() {
     '[data-i18n="review.modal.text"]': 'review.modal.text',
     '[data-i18n="review.modal.publish"]': 'review.modal.publish',
 
-    '.feature-item:nth-child(1) h4': 'pricing.feature.security',
-    '.feature-item:nth-child(1) p': 'pricing.feature.security.desc',
-    '.feature-item:nth-child(2) h4': 'pricing.feature.payouts',
-    '.feature-item:nth-child(2) p': 'pricing.feature.payouts.desc',
-    '.feature-item:nth-child(3) h4': 'pricing.feature.coverage',
-    '.feature-item:nth-child(3) p': 'pricing.feature.coverage.desc',
-    '.feature-item:nth-child(4) h4': 'pricing.feature.reporting',
-    '.feature-item:nth-child(4) p': 'pricing.feature.reporting.desc',
+    '[data-i18n="pricing.feature.security"]': 'pricing.feature.security',
+    '[data-i18n="pricing.feature.security.desc"]': 'pricing.feature.security.desc',
+    '[data-i18n="pricing.feature.payouts"]': 'pricing.feature.payouts',
+    '[data-i18n="pricing.feature.payouts.desc"]': 'pricing.feature.payouts.desc',
+    '[data-i18n="pricing.feature.coverage"]': 'pricing.feature.coverage',
+    '[data-i18n="pricing.feature.coverage.desc"]': 'pricing.feature.coverage.desc',
+    '[data-i18n="pricing.feature.reporting"]': 'pricing.feature.reporting',
+    '[data-i18n="pricing.feature.reporting.desc"]': 'pricing.feature.reporting.desc',
     };
 
     let currentLang = localStorage.getItem('language') || 'en';
