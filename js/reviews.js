@@ -99,6 +99,8 @@ class ReviewsManager {
         this.searchQuery = '';
         this.currentLang = localStorage.getItem('language') || 'ru';
         this.orders = [];
+        this.currentPage = 1;
+        this.itemsPerPage = 5;
     }
 
     async loadReviews() {
@@ -184,16 +186,21 @@ class ReviewsManager {
         const noResults = document.getElementById('noReviews');
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
         const t = translations[this.currentLang];
-        
+
         if (this.filteredReviews.length === 0) {
             container.innerHTML = '';
             noResults.style.display = 'block';
+            this.renderPagination(); 
             return;
         }
-        
+
         noResults.style.display = 'none';
-        
-        container.innerHTML = this.filteredReviews.map(review => {
+
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = startIndex + this.itemsPerPage;
+        const reviewsToRender = this.filteredReviews.slice(startIndex, endIndex);
+
+        container.innerHTML = reviewsToRender.map(review => {
             const canReviewThisService = this.canUserReview(review.serviceId);
             const isUsersReview = currentUser && review.userId === currentUser.id;
 
@@ -207,18 +214,15 @@ class ReviewsManager {
                                 <span class="company">${review.company}</span>
                             </div>
                         </div>
-                        
                         <div class="review-meta">
                             <div class="review-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
                             <div class="review-date">${new Date(review.date).toLocaleDateString()}</div>
                             <div class="review-category">${review.category}</div>
                         </div>
                     </div>
-                    
                     <div class="review-content">
                         <h5>${review.title}</h5>
                         <p class="review-text">${review.text}</p>
-                        
                         ${canReviewThisService ? `
                             <div class="review-actions">
                                 <button class="helpful-btn" onclick="markHelpful('${review.id}')" data-i18n="review.helpful">
@@ -226,7 +230,6 @@ class ReviewsManager {
                                 </button>
                             </div>
                         ` : ''}
-                        
                         ${isUsersReview ? `
                             <div class="review-actions">
                                 <button class="edit-review-btn" onclick="editReview('${review.id}')" data-i18n="review.edit">
@@ -240,6 +243,39 @@ class ReviewsManager {
         }).join('');
 
         this.applyTranslationsToReviews();
+        this.renderPagination();
+    }
+
+    renderPagination() {
+        const paginationContainer = document.getElementById('reviewsPagination');
+        if (!paginationContainer) return;
+
+        const totalPages = Math.ceil(this.filteredReviews.length / this.itemsPerPage);
+        if (totalPages <= 1) {
+            paginationContainer.innerHTML = '';
+            return;
+        }
+
+        let html = '';
+
+        if (this.currentPage > 1) {
+            html += `<button onclick="reviewsManager.changePage(${this.currentPage - 1})">←</button>`;
+        }
+
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<button class="${i === this.currentPage ? 'active' : ''}" onclick="reviewsManager.changePage(${i})">${i}</button>`;
+        }
+
+        if (this.currentPage < totalPages) {
+            html += `<button onclick="reviewsManager.changePage(${this.currentPage + 1})">→</button>`;
+        }
+
+        paginationContainer.innerHTML = html;
+    }
+
+    changePage(page) {
+        this.currentPage = page;
+        this.renderReviews();
     }
 
     applyTranslationsToReviews() {
@@ -262,19 +298,40 @@ class ReviewsManager {
         });
     }
 
-    updateFilterLabels() {
-        const t = translations[this.currentLang];
-        
-        const searchInput = document.getElementById('reviewsSearch');
-        if (searchInput && t['reviews.search.placeholder']) {
-            searchInput.placeholder = t['reviews.search.placeholder'];
-        }
-        
-        const searchButton = document.querySelector('.reviews-search button');
-        if (searchButton && t['reviews.search.button']) {
-            searchButton.textContent = t['reviews.search.button'];
-        }
+updateFilterLabels() {
+    const t = translations[this.currentLang];
+
+    const searchInput = document.getElementById('reviewsSearch');
+    if (searchInput && t['reviews.search.placeholder']) {
+        searchInput.placeholder = t['reviews.search.placeholder'];
     }
+
+    const searchButton = document.querySelector('.reviews-search button');
+    if (searchButton && t['reviews.search.button']) {
+        searchButton.textContent = t['reviews.search.button'];
+    }
+
+    const serviceFilter = document.getElementById('serviceFilter');
+    if (serviceFilter) {
+        serviceFilter.options[0].textContent = t['reviews.filter.service'];
+    }
+
+    const ratingFilter = document.getElementById('ratingFilter');
+    if (ratingFilter) {
+        ratingFilter.options[0].textContent = t['reviews.filter.rating'];
+        ratingFilter.options[1].textContent = t['reviews.rating.5'];
+        ratingFilter.options[2].textContent = t['reviews.rating.4'];
+        ratingFilter.options[3].textContent = t['reviews.rating.3'];
+    }
+
+    const sortFilter = document.getElementById('sortReviews');
+    if (sortFilter) {
+        sortFilter.options[0].textContent = t['reviews.filter.sort.date'];
+        sortFilter.options[1].textContent = t['reviews.filter.sort.rating'];
+        sortFilter.options[2].textContent = t['reviews.filter.sort.popular'];
+    }
+}
+
 }
 
 async function editReview(reviewId) {
@@ -443,6 +500,13 @@ async function deleteReview(reviewId) {
     }
 
     try {
+        const reviewResponse = await fetch(`http://localhost:3000/reviews/${reviewId}`);
+        if (!reviewResponse.ok) {
+            alert(t['message.review_not_found']);
+            return;
+        }
+        const review = await reviewResponse.json();
+
         const response = await fetch(`http://localhost:3000/reviews/${reviewId}`, {
             method: 'DELETE'
         });
@@ -453,27 +517,22 @@ async function deleteReview(reviewId) {
 
             const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-            const reviewResponse = await fetch(`http://localhost:3000/reviews/${reviewId}`);
-            if (reviewResponse.ok) {
-                const review = await reviewResponse.json();
-
-                const ordersResponse = await fetch(`http://localhost:3000/orders?userId=${currentUser.id}&serviceId=${review.serviceId}`);
-                const orders = await ordersResponse.json();
-                
-                if (orders.length > 0) {
-                    const order = orders[0];
-                    await fetch(`http://localhost:3000/orders/${order.id}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            canReview: true
-                        })
-                    });
-                }
-            }
+            const ordersResponse = await fetch(`http://localhost:3000/orders?userId=${currentUser.id}&serviceId=${review.serviceId}`);
+            const orders = await ordersResponse.json();
             
+            if (orders.length > 0) {
+                const order = orders[0];
+                await fetch(`http://localhost:3000/orders/${order.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        canReview: true
+                    })
+                });
+            }
+
             reviewsManager.loadReviews();
         } else {
             alert('Ошибка при удалении отзыва');
@@ -483,6 +542,7 @@ async function deleteReview(reviewId) {
         alert('Ошибка при удалении отзыва');
     }
 }
+
 
 function setupModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -511,11 +571,25 @@ async function markHelpful(reviewId) {
     }
 
     try {
+        const response = await fetch(`http://localhost:3000/reviews/${reviewId}`);
+        if (!response.ok) return;
+
+        const review = await response.json();
+        const updatedHelpful = (review.helpful || 0) + 1;
+
+        await fetch(`http://localhost:3000/reviews/${reviewId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ helpful: updatedHelpful })
+        });
+
         alert(t['message.thanks_feedback']);
+        reviewsManager.loadReviews();
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
 
 function applyTranslationsToElement(element, lang) {
     const t = translations[lang];

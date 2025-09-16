@@ -124,6 +124,8 @@ class ServicesManager {
         this.userOrders = [];
         this.allOrders = [];
         this.currentLang = localStorage.getItem('language') || 'ru';
+        this.currentPage = 1;
+        this.itemsPerPage = 6;
     }
 
     async loadServices() {
@@ -158,8 +160,15 @@ class ServicesManager {
                                  service.shortDescription.toLowerCase().includes(this.searchQuery.toLowerCase());
             return matchesCategory && matchesSearch;
         });
-        
+
+        this.currentPage = 1; 
         this.sortServices();
+    }
+
+    searchServices() {
+        this.searchQuery = document.getElementById('searchInput').value.trim();
+        this.currentPage = 1; 
+        this.filterServices();
     }
 
     sortServices() {
@@ -203,14 +212,19 @@ class ServicesManager {
         if (this.filteredServices.length === 0) {
             container.innerHTML = '';
             noResults.style.display = 'block';
+            this.renderPagination();
             return;
         }
         
         noResults.style.display = 'none';
-        
+
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = startIndex + this.itemsPerPage;
+        const servicesToRender = this.filteredServices.slice(startIndex, endIndex);
+
         const userOrders = this.getUserOrders(currentUser?.id);
-        
-        container.innerHTML = this.filteredServices.map(service => {
+
+        container.innerHTML = servicesToRender.map(service => {
             const isLoggedIn = !!currentUser;
             const hasActiveOrder = userOrders.some(order => 
                 order.serviceId === service.id && order.status === 'active'
@@ -285,6 +299,39 @@ class ServicesManager {
         }).join('');
 
         this.applytranslatioToServices();
+        this.renderPagination(); 
+    }
+
+    renderPagination() {
+        const paginationContainer = document.getElementById('pagination');
+        if (!paginationContainer) return;
+
+        const totalPages = Math.ceil(this.filteredServices.length / this.itemsPerPage);
+        if (totalPages <= 1) {
+            paginationContainer.innerHTML = '';
+            return;
+        }
+
+        let html = '';
+
+        if (this.currentPage > 1) {
+            html += `<button onclick="servicesManager.changePage(${this.currentPage - 1})">←</button>`;
+        }
+
+        for (let i = 1; i <= totalPages; i++) {
+            html += `<button class="${i === this.currentPage ? 'active' : ''}" onclick="servicesManager.changePage(${i})">${i}</button>`;
+        }
+
+        if (this.currentPage < totalPages) {
+            html += `<button onclick="servicesManager.changePage(${this.currentPage + 1})">→</button>`;
+        }
+
+        paginationContainer.innerHTML = html;
+    }
+
+    changePage(page) {
+        this.currentPage = page;
+        this.renderServices();
     }
 
     applytranslatioToServices() {
@@ -321,37 +368,39 @@ class ServicesManager {
         }
     }
 
-    async createOrder(serviceId) {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (!currentUser) return null;
+async createOrder(serviceId) {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) return null;
 
-        try {
-            const response = await fetch('http://localhost:3000/orders', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    userId: currentUser.id,
-                    serviceId: serviceId,
-                    status: 'active',
-                    orderDate: new Date().toISOString(),
-                    price: this.services.find(s => s.id === serviceId)?.price || 'Бесплатно',
-                    transactionFee: this.services.find(s => s.id === serviceId)?.transactionFee || '1%',
-                    canReview: true
-                })
-            });
+    const service = this.services.find(s => s.id === serviceId);
 
-            if (response.ok) {
-                const newOrder = await response.json();
-                this.allOrders.push(newOrder); 
-                return newOrder;
-            }
-        } catch (error) {
-            console.error('Error creating order:', error);
+    try {
+        const response = await fetch('http://localhost:3000/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userId: currentUser.id,
+                serviceId: serviceId,
+                status: 'active',
+                orderDate: new Date().toISOString(),
+                expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24).toISOString(), 
+                price: service?.price || 'Бесплатно',
+                transactionFee: service?.transactionFee || '1%',
+                canReview: false
+            })
+        });
+
+        if (response.ok) {
+            const newOrder = await response.json();
+            this.allOrders.push(newOrder);
+            return newOrder;
         }
-        return null;
+    } catch (error) {
+        console.error('Error creating order:', error);
     }
+    return null;
+}
+
 }
 
 function showLoginAlert() {

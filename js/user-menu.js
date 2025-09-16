@@ -94,7 +94,6 @@ function createUserDropdown(user, container) {
             <span class="dropdown-arrow">▼</span>
         </button>
         <div class="dropdown-menu hidden">
-            <button class="dropdown-item profile-btn" data-i18n="ui.dropdown.profile">👤 Профиль</button>
             ${user.role === 'admin' ? `<button class="dropdown-item admin-btn" data-i18n="ui.dropdown.admin">⚙️ Админ панель</button>` : ''}
             <button class="dropdown-item settings-btn" data-i18n="ui.dropdown.settings">⚙️ Настройки</button>
             <button class="dropdown-item logout-btn" data-i18n="ui.dropdown.logout">🚪 Выйти</button>
@@ -114,8 +113,7 @@ function createUserDropdown(user, container) {
         e.stopPropagation();
         dropdownMenu.classList.toggle('hidden');
     });
-    
-    dropdown.querySelector('.profile-btn')?.addEventListener('click', showProfileModal);
+
     dropdown.querySelector('.admin-btn')?.addEventListener('click', showAdminPanel);
     dropdown.querySelector('.settings-btn')?.addEventListener('click', showAccessibilitySettings);
     dropdown.querySelector('.logout-btn')?.addEventListener('click', handleLogout);
@@ -281,10 +279,20 @@ function saveAccessibilitySettings() {
 function resetAccessibilitySettings() {
     localStorage.removeItem('accessibilitySettings');
 
+    localStorage.setItem('theme', 'light');
+    localStorage.setItem('language', 'en');
+
     document.querySelector('input[name="font-size"][value="normal"]').checked = true;
     document.querySelector('input[name="color-scheme"][value="default"]').checked = true;
     document.getElementById('disable-images').checked = false;
+
+    document.body.classList.remove('dark', 'light'); 
+    document.body.classList.add('light');
+
+    applytranslationToElement(document, 'en'); 
+    location.reload();
 }
+
 
 function applyAccessibilitySettings() {
     const settings = JSON.parse(localStorage.getItem('accessibilitySettings') || '{}');
@@ -434,10 +442,6 @@ function applyAccessibilityStyles() {
             img.style.display = '';
         }
     });
-}
-
-function showProfileModal() {
-    alert('Функция профиля будет реализована позже');
 }
 
 function showAdminPanel() {

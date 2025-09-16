@@ -1,10 +1,7 @@
-.contact-main {
-    padding-top: 2rem;
-}
-
 .contact-hero {
     background: linear-gradient(#EAF8FF, #FFFFFF);
     padding: 4rem 10rem;
+    width: 100%;
     text-align: center;
 }
 
@@ -158,6 +155,7 @@
 .faq-preview {
     background: #F9F9F9;
     padding: 5rem 10rem;
+    width: 100%;
 }
 
 .faq-preview-content {
@@ -213,6 +211,7 @@
 
 .map-section {
     padding: 5rem 10rem;
+    width: 100%;
 }
 
 .map-container h2 {
@@ -273,11 +272,14 @@
 
 @media (max-width: 1200px) {
     .contact-hero,
-    .contact-content,
     .faq-preview,
     .map-section {
         padding-left: 5rem;
         padding-right: 5rem;
+    }
+    .contact-content{
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 }
 
@@ -734,37 +736,6 @@
         .form-group select,
         .form-group textarea {
             border-width: 2px;
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    @media (max-width: 768px) {
-        .contact-info-card,
-        .contact-form-container,
-        .faq-item {
-            background: #2a2a2a;
-            color: #fff;
-        }
-        
-        .contact-info-card h3,
-        .form-group label,
-        .faq-item h3 {
-            color: #fff;
-        }
-        
-        .contact-info-card p,
-        .contact-info-card span,
-        .faq-item p {
-            color: #ccc;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            background: #333;
-            color: #fff;
-            border-color: #555;
         }
     }
 }

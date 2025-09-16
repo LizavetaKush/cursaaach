@@ -968,43 +968,6 @@ input:checked + .slider:before {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    @media (max-width: 768px) {
-        .pricing-card,
-        .feature-item {
-            background: #2a2a2a;
-            color: #fff;
-        }
-        
-        .plan-header h3,
-        .feature-item h4,
-        .faq-question h4 {
-            color: #fff;
-        }
-        
-        .plan-header p,
-        .plan-features li,
-        .feature-item p,
-        .faq-answer p {
-            color: #ccc;
-        }
-        
-        .pricing-btn {
-            background: #333;
-            color: #fff;
-            border-color: #555;
-        }
-        
-        .pricing-btn:hover {
-            background: #444;
-        }
-        
-        .pricing-btn.primary {
-            background: #FF3F3F;
-            color: #fff;
-        }
-    }
-}
 
 @media print {
     .pricing-main {

@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="../style/global.css">
     <link rel="stylesheet" href="../style/header.css">
     <link rel="stylesheet" href="../style/theme.css">
-    <link rel="stylesheet" href="../style/home.css">
     <link rel="stylesheet" href="../style/user-menu.css">
     <link rel="stylesheet" href="../style/accessibility.css">
+    <link rel="stylesheet" href="../style/interactive.css">
     <link rel="stylesheet" href="../style/admin.css">
 </head>
 <body>
     <header>
         <div class="header-top">
-            <a href="#">Logo</a>
+            <a href="#" class="logo">Logo</a>
             <div class="header-top-right">
                 <p>email@mail.com</p>
                 <div class="header-top-right-phone">
@@ -24,9 +24,15 @@
                     <p>(000) 888-88</p>
                 </div>
             </div>
+            <button class="mobile-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+        
         <div class="header-bottom">
-            <nav>
+            <nav class="nav-menu">
                 <a href="home.html">Home</a>
                 <a href="services.html">Products</a>
                 <a href="reviews.html">Reviews</a>
@@ -34,7 +40,10 @@
                 <a href="pricing.html">Pricing</a>
             </nav>
             <div class="header-bottom-right">
-                <button class="header-bottom-right-language"><img src="../img/language.png" alt="language"> English</button>
+                <button class="header-bottom-right-language">
+                    <img src="../img/language.png" alt="language"> 
+                    <span>English</span>
+                </button>
                 <a href="auth.html" class="header-bottom-right-auth">Sign Up</a>
             </div>
         </div>

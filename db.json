@@ -79,6 +79,70 @@
       "features": [
         ""
       ]
+    },
+    {
+      "id": "1a05",
+      "title": "gerwgerw",
+      "category": "Invoices",
+      "shortDescription": "gerwgerwg",
+      "fullDescription": "gerwgerwg",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "rating": 4.5,
+      "reviewsCount": 0,
+      "icon": "../img/default-service.png",
+      "isPopular": false,
+      "features": [
+        ""
+      ]
+    },
+    {
+      "id": "6ede",
+      "title": "gerwgewr",
+      "category": "Invoices",
+      "shortDescription": "gerw",
+      "fullDescription": "gerw",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "rating": 4.5,
+      "reviewsCount": 0,
+      "icon": "../img/default-service.png",
+      "isPopular": false,
+      "features": [
+        ""
+      ]
+    },
+    {
+      "id": "ade8",
+      "title": "gegreg",
+      "category": "Invoices",
+      "shortDescription": "ergergergerger",
+      "fullDescription": "ergergergerger",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "rating": 4.5,
+      "reviewsCount": 0,
+      "icon": "../img/default-service.png",
+      "isPopular": false,
+      "features": [
+        ""
+      ]
+    },
+    {
+      "id": "049a",
+      "title": "qqqqqq",
+      "category": "Invoices",
+      "shortDescription": "terwtertwert",
+      "fullDescription": "terwtertwert",
+      "price": "5345345345",
+      "transactionFee": "1%",
+      "rating": 4.5,
+      "reviewsCount": 0,
+      "icon": "../img/default-service.png",
+      "isPopular": false,
+      "features": [
+        ""
+      ]
     }
   ],
   "reviews": [
@@ -93,6 +157,90 @@
       "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
       "date": "2023-11-12T09:15:00.000Z",
       "category": "Quick Checkout"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    },
+    {
+      "id": "2",
+      "userId": "2",
+      "userName": "Анна Смирнова",
+      "company": "Фриланс",
+      "serviceId": "2",
+      "rating": 4,
+      "title": "Идеальное решение для фрилансеров",
+      "text": "Раньше мучилась с переводом от зарубежных клиентов. Теперь просто кидаю им ссылку.",
+      "date": "2023-11-12T09:15:00.000Z",
+      "category": "Quick Checkout"
+    },
+    {
+      "id": "f264",
+      "userId": "8078",
+      "userName": "we qweq",
+      "company": "Частное лицо",
+      "serviceId": "2",
+      "category": "Quick Checkout",
+      "rating": 5,
+      "title": "пкупуненене",
+      "text": "кпукпукпукпук",
+      "date": "2025-09-16T00:11:36.381Z"
     }
   ],
   "orders": [
@@ -110,11 +258,43 @@
       "id": "d7b0",
       "userId": "1",
       "serviceId": "2",
-      "status": "active",
+      "status": "completed",
       "orderDate": "2025-09-14T10:25:28.458Z",
       "price": "Бесплатно",
       "transactionFee": "1%",
       "canReview": true
+    },
+    {
+      "id": "8543",
+      "userId": "8078",
+      "serviceId": "2",
+      "status": "completed",
+      "orderDate": "2025-09-16T00:05:48.281Z",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "canReview": false
+    },
+    {
+      "id": "0f85",
+      "userId": "8078",
+      "serviceId": "1",
+      "status": "active",
+      "orderDate": "2025-09-16T00:10:58.274Z",
+      "expiresAt": "2025-09-17T00:10:58.274Z",
+      "price": "Бесплатно",
+      "transactionFee": "1%",
+      "canReview": false
+    },
+    {
+      "id": "38be",
+      "userId": "8078",
+      "serviceId": "4b2f",
+      "status": "active",
+      "orderDate": "2025-09-16T00:11:02.136Z",
+      "expiresAt": "2025-09-17T00:11:02.136Z",
+      "price": "100000$",
+      "transactionFee": "1%",
+      "canReview": false
     }
   ]
 }

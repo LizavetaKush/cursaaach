@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'pricing.hero.title': 'Transparent pricing for your business',
         'pricing.hero.subtitle': 'Choose the optimal plan that suits you',
         'pricing.switcher.monthly': 'Monthly',
-        'pricing.switcher.yearly': 'Yearly <small>(−20%)</small>',
+        'pricing.switcher.yearly': 'Yearly (−20%)',
         'pricing.plan.startup': 'Startup',
         'pricing.plan.business': 'Business',
         'pricing.plan.premium': 'Premium',
@@ -405,7 +405,16 @@ document.addEventListener('DOMContentLoaded', function() {
         'message.review_success': 'Thank you for your review!',
         'message.review_error': 'Error submitting review',
         'message.fill_all_fields': 'Please fill in all fields',
-        'message.load_error': 'Failed to load services'
+        'message.load_error': 'Failed to load services',
+
+    'pricing.features.security': 'PCI DSS Security',
+    'pricing.features.security.desc': 'Compliance with international payment security standards',
+    'pricing.features.payouts': 'Instant Payouts',
+    'pricing.features.payouts.desc': 'Funds withdrawal to card or account within 24 hours',
+    'pricing.features.coverage': 'Global Coverage',
+    'pricing.features.coverage.desc': 'Accept payments from anywhere in the world',
+    'pricing.features.reporting': 'Detailed Reporting',
+    'pricing.features.reporting.desc': 'Complete statistics and analytics of all operations',
         },
         'ru': {
             'title': 'Платежный шлюз - Принимайте платежи легко',
@@ -648,7 +657,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'pricing.hero.title': 'Прозрачные тарифы для вашего бизнеса',
         'pricing.hero.subtitle': 'Выберите оптимальный план, который подходит именно вам',
         'pricing.switcher.monthly': 'Ежемесячно',
-        'pricing.switcher.yearly': 'Ежегодно <small>(−20%)</small>',
+        'pricing.switcher.yearly': 'Ежегодно (−20%)',
         'pricing.plan.startup': 'Стартовый',
         'pricing.plan.business': 'Бизнес',
         'pricing.plan.premium': 'Премиум',
@@ -812,7 +821,16 @@ document.addEventListener('DOMContentLoaded', function() {
         'message.review_success': 'Спасибо за ваш отзыв!',
         'message.review_error': 'Ошибка при отправке отзыва',
         'message.fill_all_fields': 'Пожалуйста, заполните все поля',
-        'message.load_error': 'Не удалось загрузить услуги'
+        'message.load_error': 'Не удалось загрузить услуги',
+
+    'pricing.features.security': 'Безопасность PCI DSS',
+    'pricing.features.security.desc': 'Соответствие международным стандартам безопасности платежей',
+    'pricing.features.payouts': 'Мгновенные выплаты',
+    'pricing.features.payouts.desc': 'Вывод средств на карту или счет в течение 24 часов',
+    'pricing.features.coverage': 'Глобальное покрытие',
+    'pricing.features.coverage.desc': 'Прием платежей из любой точки мира',
+    'pricing.features.reporting': 'Детальная отчетность',
+    'pricing.features.reporting.desc': 'Полная статистика и аналитика всех операций',
         }
     };
 

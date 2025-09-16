@@ -1,0 +1,104 @@
+button, .accepting-button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, .accepting-button:hover {
+    transform: scale(1.05);
+    background-color: #FF5757;
+}
+
+button:active, .accepting-button:active {
+    transform: scale(0.95);
+}
+
+.carousel-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    color: #FF3F3F;
+    transform: scale(1.2);
+}
+
+.trusted-block {
+    transition: all 0.3s ease;
+}
+
+.trusted-block:hover {
+    background-color: #FFEAEA;
+    transform: translateY(-5px);
+}
+
+.accordion-label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accordion-label:hover {
+    background-color: #FFEBEB;
+}
+
+.accordion-input:checked + .accordion-label {
+    color: #FF3F3F;
+}
+
+.wetalk-about-block button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wetalk-about-block button:hover {
+    background-color: #FF3F3F;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.another-text button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.another-text button:hover {
+    background-color: #FF3F3F;
+    transform: translateY(-3px);
+}
+
+.nav-menu a {
+    cursor: pointer;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #FF3F3F;
+    border-bottom: 2px solid #FF3F3F;
+}
+
+.header-top-right-phone:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.section-start-img img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.section-start-img img:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+input[type="text"], input[type="email"] {
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #FF3F3F;
+    box-shadow: 0 0 5px rgba(255,63,63,0.5);
+}
+
+.block-absolut-block:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}

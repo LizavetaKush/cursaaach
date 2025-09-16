@@ -101,19 +101,55 @@
     --gradient-end: #121212;
 }
 
-.dark body {
+.dark body,
+.dark header,
+.dark main,
+.dark .slider,
+.dark .wetalk,
+.dark .wetalk-about-block button,
+.dark .contact-hero,
+.dark .faq-preview  {
     background-color: #121212;
     color: #e0e0e0;
 }
 
+.dark .service-card,
+.dark .review-card,
+.dark .switcher-container,
+.dark .admin-table,
+.dark .modal  {
+    background-color: #383838;
+    color: #e0e0e0;
+}
+
 .dark .header-top,
-.dark .header-bottom {
+.dark .header-bottom,
+.dark .trusted,
+.dark .pagination button {
     background-color: #121212;
     border-bottom-color: #404040;
 }
 
 .dark .header-top-right p,
-.dark .header-top-right-phone p {
+.dark .header-top-right-phone p,
+.dark .header-top a.logo,
+.dark .section-start-text h2,
+.dark .section-start-text p,
+.dark .section-start-text-buttons button,
+.dark .section-start-text-rating b,
+.dark .block-absolut-block-text p,
+.dark .accepting-bottom h2,
+.dark .accepting-bottom p,
+.dark .accepting-bottom h3,
+.dark .trusted-block h3,
+.dark .trusted-block p,
+.dark .service-description,
+.dark .service-rating span,
+.dark .review-content h5,
+.dark .pricing-hero h1,
+.dark .pricing-hero p,
+.dark .pricing-features h2,
+.dakr .pricing-faq h2 {
     color: #a0a0a0;
 }
 

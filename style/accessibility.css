@@ -1,5 +1,5 @@
 .accessibility-modal {
-    max-width: 600px;
+    width: 80%;
 }
 
 .accessibility-section {
@@ -135,11 +135,6 @@ body.accessibility-active li,
 body.accessibility-active a {
     max-width: 80ch;
     text-align: left;
-}
-
-body.accessibility-active * {
-    letter-spacing: 0.12em;
-    word-spacing: 0.16em;
 }
 
 body.accessibility-active.font-normal {
@@ -334,18 +329,4 @@ body.accessibility-active.images-disabled .image-placeholder {
         grid-template-columns: 1fr;
     }
     
-    body.accessibility-active {
-        padding: 0 1rem;
-    }
-}
-
-body.accessibility-active .section-start,
-body.accessibility-active .accepting,
-body.accessibility-active .trusted,
-body.accessibility-active .another,
-body.accessibility-active .slider,
-body.accessibility-active .enter,
-body.accessibility-active .wetalk {
-    max-width: 100%;
-    overflow-x: hidden;
 }
